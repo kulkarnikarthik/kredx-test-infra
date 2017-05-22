@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Create Flow">
-    <test name="whatfix-test-automation">
+    <test name="kredx-test-automation">
         <classes>
             <class name="tests.CreateFlowTest"/>
         </classes>
