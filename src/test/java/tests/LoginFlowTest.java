@@ -28,7 +28,8 @@ public class LoginFlowTest extends BaseTest {
 //        }
 
         DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
-        Assert.assertTrue(dashboardPage.confirmOnDashboardPage(),"User failed to login");
+//        Assert.assertTrue(dashboardPage.confirmOnDashboardPage(),"User failed to login");
+        Assert.assertEquals(dashboardPage.confirmOnDashboardPage(),true,"User failed to login");
     }
 
     @Test(priority = 1)
@@ -38,7 +39,8 @@ public class LoginFlowTest extends BaseTest {
         loginPage.enterUsername(data.getUsername())
                 .submit();
 
-        Assert.assertEquals(true, loginPage.noPasswordErorMessage());
+//        Assert.assertEquals(true, loginPage.noPasswordErorMessage());
+        Assert.assertEquals(loginPage.noPasswordErorMessage(),true,"Error message is missing");
 
     }
 

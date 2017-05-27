@@ -22,6 +22,9 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//div[contains(text(),'Please enter your password')]")
     WebElement noPasswordEntered;
 
+    @FindBy(xpath = "//a[contains(text(),'Sign up as an Investor')]")
+    WebElement signUpAsInvestor;
+
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -50,5 +53,19 @@ public class LoginPage extends BasePage {
         catch(NoSuchElementException e){
             return false;
         }
+    }
+
+    public LoginPage goToSignUpAsInvestorPage(){
+
+        WebDriverWait wait = new WebDriverWait(driver,3000);
+        wait.until(ExpectedConditions.elementToBeClickable(signUpAsInvestor));
+        signUpAsInvestor.click();
+
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return this;
     }
 }
