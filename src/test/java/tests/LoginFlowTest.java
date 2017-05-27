@@ -9,38 +9,52 @@ import org.testng.annotations.Test;
 import pages.DashboardPage;
 import pages.LoginPage;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by chandanjavaregowda on 03/04/17.
  */
 @Listeners({TestListener.class})
 public class LoginFlowTest extends BaseTest {
-    @Test(priority = 2)
+    @Test
     public void LoginSuccessfullyTest() {
-        setUp();
+        driver.get(data.getUrl());
+        driver.manage().timeouts().implicitlyWait(config.getTimeout(), TimeUnit.SECONDS);
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
         loginPage.enterUsername(data.getUsername())
                  .enterPassword(data.getPassword())
                  .submit();
-//        try {
-//            Thread.sleep(5000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
 
         DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
-//        Assert.assertTrue(dashboardPage.confirmOnDashboardPage(),"User failed to login");
-        Assert.assertEquals(dashboardPage.confirmOnDashboardPage(),true,"User failed to login");
+        Assert.assertEquals(dashboardPage.confirmOnDashboardPage(),data.getLoggedInMessage());
+
+        dashboardPage.logoutUser();
+        Assert.assertEquals(loginPage.isUserLoggedOut(),data.getUserLoggedOutMessage());
+
     }
 
-    @Test(priority = 1)
+    @Test
     public void verifyNoPasswordEnteredTest(){
 
+        driver.get(data.getUrl());
+        driver.manage().timeouts().implicitlyWait(config.getTimeout(), TimeUnit.SECONDS);
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
         loginPage.enterUsername(data.getUsername())
                 .submit();
+        Assert.assertEquals(loginPage.isPasswordErrorMessageVisible(),data.getNoPasswordMessage());
 
-//        Assert.assertEquals(true, loginPage.noPasswordErorMessage());
-        Assert.assertEquals(loginPage.noPasswordErorMessage(),true,"Error message is missing");
+    }
+
+    @Test
+    public void inCorrectPasswordEnteredTest(){
+
+        driver.get(data.getUrl());
+        driver.manage().timeouts().implicitlyWait(config.getTimeout(), TimeUnit.SECONDS);
+        LoginPage loginPage = PageFactory.initElements(driver,LoginPage.class);
+        loginPage.enterUsername(data.getUsername())
+                 .inCorrectPassword()
+                 .submit();
+        Assert.assertEquals(loginPage.isInCorrectPasswordErrorMessageVisible(),data.getInCorrectPasswordErrorMessage());
 
     }
 

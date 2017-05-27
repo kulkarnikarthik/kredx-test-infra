@@ -15,8 +15,15 @@ public class DashboardPage extends BasePage {
     @FindBy(xpath = "//a[@href='/financier/dashboard/deals']")
     WebElement dealsLink;
 
-    @FindBy(xpath = "//span[@class = 'icon-dashboard']")
+   // @FindBy(xpath = "//span[@class = 'icon-dashboard']")
+    @FindBy(linkText = "Dashboard")
     WebElement dashboardIcon;
+
+    @FindBy(xpath = "//div[@class = 'navbar-account-body']/div/span")
+    WebElement clickOnProfileDropdown;
+
+    @FindBy(xpath = "//li[contains(text(),'LOG OUT')]")
+    WebElement logoutButton;
 
     public DashboardPage(WebDriver driver) {
         super(driver);
@@ -26,15 +33,25 @@ public class DashboardPage extends BasePage {
         dealsLink.click();
     }
 
-    public boolean confirmOnDashboardPage(){
+    public String confirmOnDashboardPage(){
 
         WebDriverWait wait = new WebDriverWait(driver,4000);
         try{
             wait.until(ExpectedConditions.visibilityOf(dashboardIcon));
-            return  dashboardIcon.isDisplayed();
+            return  dashboardIcon.getText();
         }
         catch(NoSuchElementException e){
-            return false;
+            return "not found";
         }
     }
+
+    public DashboardPage logoutUser(){
+
+        clickOnProfileDropdown.click();
+        logoutButton.click();
+        return this;
+
+    }
+
+
 }

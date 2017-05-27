@@ -5,6 +5,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Attachment;
 
+import java.util.Random;
 import java.util.Set;
 
 /**
@@ -44,5 +45,31 @@ public class BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public String mobilenumber(){
+        String num = "710040";
+
+        Random random = new Random();
+        String endingNum = String.format("%04d", random.nextInt(10000));
+        return num + endingNum;
+    }
+
+    public String ramdomPassword(){
+        String alphaNumerics = "qwertyuiopasdfghjklzxcvbnm1234567890";
+        String password = "";
+        for (int i = 0; i < 8; i++) {
+            password += alphaNumerics.charAt((int) (Math.random() * alphaNumerics.length()));
+        }
+        return password;
+    }
+
+    public String randomName(){
+        String alphaNumerics = "qwertyuiopasdfghjklzxcvbnm";
+        String password = "";
+        for (int i = 0; i < 8; i++) {
+            password += alphaNumerics.charAt((int) (Math.random() * alphaNumerics.length()));
+        }
+        return password;
     }
 }

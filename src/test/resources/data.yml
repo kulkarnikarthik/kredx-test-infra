@@ -5,4 +5,9 @@ username: deepak.iit+kf@gmail.com
 password: kredxtest
 name: L Messi
 mobileNumber: 7100403576
-emailId : r5@yopmail.com
+emailId: r5@yopmail.com
+inCorrectPasswordErrorMessage: Incorrect email or password.
+loggedInMessage: Dashboard
+userLoggedOutMessage: New to KredX?
+createdAccountMessage: WELCOME ABOARD KREDX!
+noPasswordMessage: Please enter your password

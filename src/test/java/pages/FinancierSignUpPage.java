@@ -8,8 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.Random;
-
 /**
  * Created by ken.dsilva on 26/05/17.
  */
@@ -30,11 +28,8 @@ public class FinancierSignUpPage extends BasePage {
     @FindBy(xpath = "//div[@class = 'checkbox']/input")
     WebElement checkBox;
 
-    @FindBy(xpath = "//strong[contains(text(),'Welcome to KredX!')]")
-    WebElement welcomeToKredx;
-
     @FindBy(xpath = "//strong[contains(text(),'WELCOME ABOARD KREDX!')]")
-    WebElement welcomeToKredx2;
+    WebElement welcomeToKredx;
 
     @FindBy(xpath = "//button[contains(text(),'Submit')]")
     WebElement submitButton;
@@ -68,27 +63,15 @@ public class FinancierSignUpPage extends BasePage {
         return this;
     }
 
-//    public boolean onAccountCreatedPage(){
-//
-//        WebDriverWait wait = new WebDriverWait(driver,4000);
-//        try{
-//            wait.until(ExpectedConditions.visibilityOf(welcomeToKredx));
-//            return  welcomeToKredx.isDisplayed();
-//        }
-//        catch(NoSuchElementException e){
-//            return false;
-//        }
-//    }
-
-    public boolean onAccountCreatedPage(){
+    public String onAccountCreatedPage(){
 
         WebDriverWait wait = new WebDriverWait(driver,4000);
         try{
-            wait.until(ExpectedConditions.visibilityOf(welcomeToKredx2));
-            return  welcomeToKredx2.isDisplayed();
+            wait.until(ExpectedConditions.visibilityOf(welcomeToKredx));
+            return  welcomeToKredx.getText();
         }
         catch(NoSuchElementException e){
-            return false;
+            return "not found";
         }
     }
 
@@ -96,32 +79,4 @@ public class FinancierSignUpPage extends BasePage {
         submitButton.click();
         return this;
     }
-
-    public String mobilenumber(){
-        String num = "710040";
-
-        Random random = new Random();
-        String endingNum = String.format("%04d", random.nextInt(10000));
-        return num + endingNum;
-    }
-
-    public String ramdomPassword(){
-        String alphaNumerics = "qwertyuiopasdfghjklzxcvbnm1234567890";
-        String password = "";
-        for (int i = 0; i < 8; i++) {
-            password += alphaNumerics.charAt((int) (Math.random() * alphaNumerics.length()));
-        }
-        return password;
-    }
-
-    public String randomName(){
-        String alphaNumerics = "qwertyuiopasdfghjklzxcvbnm";
-        String password = "";
-        for (int i = 0; i < 8; i++) {
-            password += alphaNumerics.charAt((int) (Math.random() * alphaNumerics.length()));
-        }
-        return password;
-    }
-
-
 }

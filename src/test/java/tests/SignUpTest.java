@@ -30,9 +30,7 @@ public class SignUpTest extends BaseTest {
                            .selectCheckBox()
                            .clickOnSubmitButton();
 
-//        Assert.assertTrue(financierSignUpPage.onAccountCreatedPage(),"User failed create account");
-//        Assert.assertEquals(financierSignUpPage.onAccountCreatedPage(),true,"User failed create account");
-        Assert.assertEquals(financierSignUpPage.onAccountCreatedPage(),true,"User failed create account");
+        Assert.assertEquals(financierSignUpPage.onAccountCreatedPage(),data.getCreatedAccountMessage());
     }
 
 }

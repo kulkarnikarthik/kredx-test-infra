@@ -25,6 +25,12 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//a[contains(text(),'Sign up as an Investor')]")
     WebElement signUpAsInvestor;
 
+    @FindBy(xpath = "//p[contains(text(),'New to KredX?')]")
+    WebElement onLoginPage;
+
+    @FindBy(xpath = "//div[contains(text(),'Incorrect email or password.')]")
+    WebElement errorMessageWrongPassword;
+
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -43,15 +49,15 @@ public class LoginPage extends BasePage {
         login.click();
     }
 
-    public boolean noPasswordErorMessage(){
+    public String isPasswordErrorMessageVisible(){
 
         WebDriverWait wait = new WebDriverWait(driver,4000);
         try{
             wait.until(ExpectedConditions.visibilityOf(noPasswordEntered));
-            return noPasswordEntered.isDisplayed();
+            return noPasswordEntered.getText();
         }
         catch(NoSuchElementException e){
-            return false;
+            return "not found";
         }
     }
 
@@ -68,4 +74,35 @@ public class LoginPage extends BasePage {
         }
         return this;
     }
+
+    public String isUserLoggedOut(){
+
+        WebDriverWait wait = new WebDriverWait(driver,4000);
+        try{
+            wait.until(ExpectedConditions.visibilityOf(onLoginPage));
+            return onLoginPage.getText().trim();
+        }
+        catch(NoSuchElementException e){
+            return "not found";
+        }
+    }
+
+    public LoginPage inCorrectPassword() {
+        this.password.sendKeys(ramdomPassword());
+        return this;
+    }
+
+
+    public String isInCorrectPasswordErrorMessageVisible(){
+
+        WebDriverWait wait = new WebDriverWait(driver,4000);
+        try{
+            wait.until(ExpectedConditions.visibilityOf(errorMessageWrongPassword));
+            return errorMessageWrongPassword.getText();
+        }
+        catch(NoSuchElementException e){
+            return "not found";
+        }
+    }
+
 }
