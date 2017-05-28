@@ -30,24 +30,20 @@ public class LoginFlowTest extends BaseTest {
 
         dashboardPage.logoutUser();
         Assert.assertEquals(loginPage.isUserLoggedOut(),data.getUserLoggedOutMessage());
-
     }
 
     @Test
     public void verifyNoPasswordEnteredTest(){
-
         driver.get(data.getUrl());
         driver.manage().timeouts().implicitlyWait(config.getTimeout(), TimeUnit.SECONDS);
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
         loginPage.enterUsername(data.getUsername())
                 .submit();
         Assert.assertEquals(loginPage.isPasswordErrorMessageVisible(),data.getNoPasswordMessage());
-
     }
 
     @Test
     public void inCorrectPasswordEnteredTest(){
-
         driver.get(data.getUrl());
         driver.manage().timeouts().implicitlyWait(config.getTimeout(), TimeUnit.SECONDS);
         LoginPage loginPage = PageFactory.initElements(driver,LoginPage.class);
@@ -55,7 +51,6 @@ public class LoginFlowTest extends BaseTest {
                  .inCorrectPassword()
                  .submit();
         Assert.assertEquals(loginPage.isInCorrectPasswordErrorMessageVisible(),data.getInCorrectPasswordErrorMessage());
-
     }
 
 }

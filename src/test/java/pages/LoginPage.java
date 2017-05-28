@@ -50,7 +50,6 @@ public class LoginPage extends BasePage {
     }
 
     public String isPasswordErrorMessageVisible(){
-
         WebDriverWait wait = new WebDriverWait(driver,4000);
         try{
             wait.until(ExpectedConditions.visibilityOf(noPasswordEntered));
@@ -62,21 +61,19 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage goToSignUpAsInvestorPage(){
-
         WebDriverWait wait = new WebDriverWait(driver,3000);
         wait.until(ExpectedConditions.elementToBeClickable(signUpAsInvestor));
         signUpAsInvestor.click();
 
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(4000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         return this;
     }
 
     public String isUserLoggedOut(){
-
         WebDriverWait wait = new WebDriverWait(driver,4000);
         try{
             wait.until(ExpectedConditions.visibilityOf(onLoginPage));
@@ -88,13 +85,12 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage inCorrectPassword() {
-        this.password.sendKeys(ramdomPassword());
+        this.password.sendKeys(generateRandomPassword());
         return this;
     }
 
 
     public String isInCorrectPasswordErrorMessageVisible(){
-
         WebDriverWait wait = new WebDriverWait(driver,4000);
         try{
             wait.until(ExpectedConditions.visibilityOf(errorMessageWrongPassword));

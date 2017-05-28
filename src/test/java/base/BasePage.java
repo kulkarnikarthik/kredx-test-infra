@@ -47,7 +47,7 @@ public class BasePage {
         }
     }
 
-    public String mobilenumber(){
+    public String generateRandomMobileNumber(){
         String num = "710040";
 
         Random random = new Random();
@@ -55,7 +55,7 @@ public class BasePage {
         return num + endingNum;
     }
 
-    public String ramdomPassword(){
+    public String generateRandomPassword(){
         String alphaNumerics = "qwertyuiopasdfghjklzxcvbnm1234567890";
         String password = "";
         for (int i = 0; i < 8; i++) {
@@ -64,7 +64,7 @@ public class BasePage {
         return password;
     }
 
-    public String randomName(){
+    public String generateRandomName(){
         String alphaNumerics = "qwertyuiopasdfghjklzxcvbnm";
         String password = "";
         for (int i = 0; i < 8; i++) {

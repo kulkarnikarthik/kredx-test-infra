@@ -4,6 +4,7 @@
     <test name="kredx-test-automation">
         <classes>
             <class name="tests.LoginFlowTest"/>
+            <class name="tests.SignUpTest"/>
         </classes>
     </test>
 </suite>

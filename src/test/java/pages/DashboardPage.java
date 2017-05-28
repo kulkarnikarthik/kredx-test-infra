@@ -15,7 +15,6 @@ public class DashboardPage extends BasePage {
     @FindBy(xpath = "//a[@href='/financier/dashboard/deals']")
     WebElement dealsLink;
 
-   // @FindBy(xpath = "//span[@class = 'icon-dashboard']")
     @FindBy(linkText = "Dashboard")
     WebElement dashboardIcon;
 
@@ -34,7 +33,6 @@ public class DashboardPage extends BasePage {
     }
 
     public String confirmOnDashboardPage(){
-
         WebDriverWait wait = new WebDriverWait(driver,4000);
         try{
             wait.until(ExpectedConditions.visibilityOf(dashboardIcon));
@@ -46,11 +44,9 @@ public class DashboardPage extends BasePage {
     }
 
     public DashboardPage logoutUser(){
-
         clickOnProfileDropdown.click();
         logoutButton.click();
         return this;
-
     }
 
 

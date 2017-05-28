@@ -39,22 +39,22 @@ public class FinancierSignUpPage extends BasePage {
     }
 
     public FinancierSignUpPage enterUserName(){
-        enterUserName.sendKeys(randomName());
+        enterUserName.sendKeys(generateRandomName());
         return this;
     }
 
     public FinancierSignUpPage enterMobileNumber(){
-        enterMobileNumber.sendKeys(mobilenumber());
+        enterMobileNumber.sendKeys(generateRandomMobileNumber());
         return this;
     }
 
     public FinancierSignUpPage enterEmailId(String emailId){
-        enterEmailId.sendKeys(ramdomPassword() + emailId);
+        enterEmailId.sendKeys(generateRandomPassword() + emailId);
         return this;
     }
 
     public FinancierSignUpPage enterPassword(){
-        enterPassword.sendKeys(ramdomPassword());
+        enterPassword.sendKeys(generateRandomPassword());
         return this;
     }
 
@@ -64,7 +64,6 @@ public class FinancierSignUpPage extends BasePage {
     }
 
     public String onAccountCreatedPage(){
-
         WebDriverWait wait = new WebDriverWait(driver,4000);
         try{
             wait.until(ExpectedConditions.visibilityOf(welcomeToKredx));
