@@ -103,6 +103,7 @@
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/test-suite/create_flow.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/test-suite/regression-test-suite.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
