@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class BaseTest {
     protected TestData data;
-    private Config config;
+    protected Config config;
     private static DesiredCapabilities capabilities;
     public static WebDriver driver;
 

@@ -27,7 +27,7 @@ public class DealsPage extends BasePage {
         dealamount.sendKeys("20");
     }
 
-    public void clickBuyDeal(){        dealBuyButton.click();
+    public void clickBuyDeal(){  dealBuyButton.click();
     }
 
     public void proceedDeal(){
