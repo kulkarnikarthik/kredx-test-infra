@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.allure.annotations.Step;
 
 
 public class LoginPage extends BasePage {
@@ -16,7 +17,7 @@ public class LoginPage extends BasePage {
     @FindBy(name = "password")
     WebElement password;
 
-    @FindBy(xpath = "//button[@class='btn btn-kredx-primary btn-block']")
+    @FindBy(xpath = "//button[contains(text(),'Continue')]")
     WebElement login;
 
     @FindBy(xpath = "//div[contains(text(),'Please enter your password')]")
@@ -31,15 +32,23 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//div[contains(text(),'Incorrect email or password.')]")
     WebElement errorMessageWrongPassword;
 
+    @FindBy(xpath = "//div[contains(text(),'Please enter your registered email')]")
+    WebElement emptyEmailField;
+
+    @FindBy(xpath = "//div[contains(text(),'Email Provided is not valid')]")
+    WebElement invalidEmailMessage;
+
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
+    @Step("Entering valid username")
     public LoginPage enterUsername(String username) {
         email.sendKeys(username);
         return this;
     }
 
+    @Step("Entering valid password")
     public LoginPage enterPassword(String password) {
         this.password.sendKeys(password);
         return this;
@@ -49,6 +58,7 @@ public class LoginPage extends BasePage {
         login.click();
     }
 
+    @Step("Verifying error message for no password entered")
     public String isPasswordErrorMessageVisible(){
         WebDriverWait wait = new WebDriverWait(driver,4000);
         try{
@@ -60,19 +70,15 @@ public class LoginPage extends BasePage {
         }
     }
 
+    @Step("Navigating to investor signup page")
     public LoginPage goToSignUpAsInvestorPage(){
         WebDriverWait wait = new WebDriverWait(driver,3000);
         wait.until(ExpectedConditions.elementToBeClickable(signUpAsInvestor));
         signUpAsInvestor.click();
-
-//        try {
-//            Thread.sleep(4000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
         return this;
     }
 
+    @Step("Verifying user logout")
     public String isUserLoggedOut(){
         WebDriverWait wait = new WebDriverWait(driver,4000);
         try{
@@ -84,12 +90,13 @@ public class LoginPage extends BasePage {
         }
     }
 
+    @Step("Input invalid password")
     public LoginPage inCorrectPassword() {
         this.password.sendKeys(generateRandomPassword());
         return this;
     }
 
-
+    @Step("Verification of incorrect password error message")
     public String isInCorrectPasswordErrorMessageVisible(){
         WebDriverWait wait = new WebDriverWait(driver,4000);
         try{
@@ -100,5 +107,30 @@ public class LoginPage extends BasePage {
             return "not found";
         }
     }
+
+    @Step("Verification of no username entered error message")
+    public String noUsernameEnteredMessage(){
+        WebDriverWait wait = new WebDriverWait(driver,4000);
+        try{
+            wait.until(ExpectedConditions.visibilityOf(emptyEmailField));
+            return emptyEmailField.getText();
+        }
+        catch(NoSuchElementException e){
+            return "not found";
+        }
+    }
+
+    @Step("Invalid email entered message")
+    public String invalidEmailEnteredMessage(){
+    WebDriverWait wait = new WebDriverWait(driver,4000);
+        try{
+        wait.until(ExpectedConditions.visibilityOf(invalidEmailMessage));
+        return invalidEmailMessage.getText();
+    }
+        catch(NoSuchElementException e){
+        return "not found";
+    }
+}
+
 
 }

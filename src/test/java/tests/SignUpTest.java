@@ -17,7 +17,7 @@ import pages.LoginPage;
 public class SignUpTest extends BaseTest {
 
     @Test
-    public void successfulSignUp(){
+    public void successfulSignUpTest(){
         LoginPage loginPage = PageFactory.initElements(driver,LoginPage.class);
         loginPage.goToSignUpAsInvestorPage();
 

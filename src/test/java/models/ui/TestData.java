@@ -15,6 +15,82 @@ public class TestData {
     private String userLoggedOutMessage;
     private String createdAccountMessage;
     private String noPasswordMessage;
+    private String amount;
+    private String inputRemark;
+    private String tpslLogin;
+    private String tpslPassword;
+    private String successfulWalletTopUp;
+    private String alphanumericErrorMessage;
+    private String noEmailMessage;
+    private String invalidEmail;
+
+    public String getInvalidEmail() {
+        return invalidEmail;
+    }
+
+    public void setInvalidEmail(String invalidEmail) {
+        this.invalidEmail = invalidEmail;
+    }
+
+    public String getNoEmailMessage() {
+        return noEmailMessage;
+    }
+
+    public void setNoEmailMessage(String noEmailMessage) {
+        this.noEmailMessage = noEmailMessage;
+    }
+
+    public String getInvalidInputErrorMessage() {
+        return alphanumericErrorMessage;
+    }
+
+    public void setAlphanumericErrorMessage(String alphanumericErrorMessage) {
+        this.alphanumericErrorMessage = alphanumericErrorMessage;
+    }
+
+    public String getSuccessfulWalletTopUpMessage() {
+        return successfulWalletTopUp;
+    }
+
+    public void setSuccessfulWalletTopUp(String successfulWalletTopUp) {
+        this.successfulWalletTopUp = successfulWalletTopUp;
+    }
+
+    public String getTpslPassword() {
+        return tpslPassword;
+    }
+
+    public void setTpslPassword(String tpslPassword) {
+        this.tpslPassword = tpslPassword;
+    }
+
+    public String getTpslLogin() {
+        return tpslLogin;
+    }
+
+    public void setTpslLogin(String tpslLogin) {
+        this.tpslLogin = tpslLogin;
+    }
+
+    public String getInputRemark() {
+        return inputRemark;
+    }
+
+    public void setInputRemark(String inputRemark) {
+        this.inputRemark = inputRemark;
+    }
+
+    public String getInCorrectPasswordErrorMessage() {
+        return inCorrectPasswordErrorMessage;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
 
     public String getNoPasswordMessage() {
         return noPasswordMessage;
@@ -48,7 +124,7 @@ public class TestData {
         this.loggedInMessage = loggedInMessage;
     }
 
-    public String getInCorrectPasswordErrorMessage() {
+    public String getCorrectPasswordErrorMessage() {
         return inCorrectPasswordErrorMessage;
     }
 

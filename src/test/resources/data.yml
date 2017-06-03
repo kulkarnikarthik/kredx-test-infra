@@ -11,3 +11,11 @@ loggedInMessage: Dashboard
 userLoggedOutMessage: New to KredX?
 createdAccountMessage: WELCOME ABOARD KREDX!
 noPasswordMessage: Please enter your password
+noEmailMessage: Please enter your registered email
+invalidEmail: Email Provided is not valid
+amount: 1
+inputRemark: top up
+tpslLogin: test
+tpslPassword: test
+successfulWalletTopUp: Congratulations
+alphanumericErrorMessage: Please enter a valid amount for topup.

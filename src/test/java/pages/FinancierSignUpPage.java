@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.allure.annotations.Step;
 
 /**
  * Created by ken.dsilva on 26/05/17.
@@ -38,31 +39,37 @@ public class FinancierSignUpPage extends BasePage {
         super(driver);
     }
 
+    @Step("Input random username")
     public FinancierSignUpPage enterUserName(){
         enterUserName.sendKeys(generateRandomName());
         return this;
     }
 
+    @Step("Input random mobile number")
     public FinancierSignUpPage enterMobileNumber(){
         enterMobileNumber.sendKeys(generateRandomMobileNumber());
         return this;
     }
 
+    @Step("Input random email id")
     public FinancierSignUpPage enterEmailId(String emailId){
         enterEmailId.sendKeys(generateRandomPassword() + emailId);
         return this;
     }
 
+    @Step("Input random password")
     public FinancierSignUpPage enterPassword(){
         enterPassword.sendKeys(generateRandomPassword());
         return this;
     }
 
+    @Step("Accept T&C checkbox")
     public FinancierSignUpPage selectCheckBox(){
         checkBox.click();
         return this;
     }
 
+    @Step("Verification of Account created page landing")
     public String onAccountCreatedPage(){
         WebDriverWait wait = new WebDriverWait(driver,4000);
         try{
@@ -74,6 +81,7 @@ public class FinancierSignUpPage extends BasePage {
         }
     }
 
+    @Step("Clicking of submit SignUp button")
     public FinancierSignUpPage clickOnSubmitButton(){
         submitButton.click();
         return this;

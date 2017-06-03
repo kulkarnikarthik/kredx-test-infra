@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 @Listeners({TestListener.class})
 public class LoginFlowTest extends BaseTest {
     @Test
-    public void LoginSuccessfullyTest() {
+    public void LoginSuccessfullTest() {
         driver.get(data.getUrl());
         driver.manage().timeouts().implicitlyWait(config.getTimeout(), TimeUnit.SECONDS);
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
@@ -33,7 +33,7 @@ public class LoginFlowTest extends BaseTest {
     }
 
     @Test
-    public void verifyNoPasswordEnteredTest(){
+    public void noPasswordEnteredTest(){
         driver.get(data.getUrl());
         driver.manage().timeouts().implicitlyWait(config.getTimeout(), TimeUnit.SECONDS);
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
@@ -43,14 +43,35 @@ public class LoginFlowTest extends BaseTest {
     }
 
     @Test
-    public void inCorrectPasswordEnteredTest(){
+    public void incorrectPasswordEnteredTest(){
         driver.get(data.getUrl());
         driver.manage().timeouts().implicitlyWait(config.getTimeout(), TimeUnit.SECONDS);
         LoginPage loginPage = PageFactory.initElements(driver,LoginPage.class);
         loginPage.enterUsername(data.getUsername())
                  .inCorrectPassword()
                  .submit();
-        Assert.assertEquals(loginPage.isInCorrectPasswordErrorMessageVisible(),data.getInCorrectPasswordErrorMessage());
+        Assert.assertEquals(loginPage.isInCorrectPasswordErrorMessageVisible(),data.getCorrectPasswordErrorMessage());
     }
 
+    @Test
+    public void emptyCredentialsTest(){
+        driver.get(data.getUrl());
+        driver.manage().timeouts().implicitlyWait(config.getTimeout(), TimeUnit.SECONDS);
+        LoginPage loginPage = PageFactory.initElements(driver,LoginPage.class);
+        loginPage
+                .submit();
+        Assert.assertEquals(loginPage.noUsernameEnteredMessage(),data.getNoEmailMessage());
+        Assert.assertEquals(loginPage.isPasswordErrorMessageVisible(),data.getNoPasswordMessage());
+    }
+
+    @Test
+    public void invalidEmailEnteredTest(){
+        driver.get(data.getUrl());
+        driver.manage().timeouts().implicitlyWait(config.getTimeout(), TimeUnit.SECONDS);
+        LoginPage loginPage = PageFactory.initElements(driver,LoginPage.class);
+        loginPage.enterUsername(data.getName())
+                 .enterPassword(data.getPassword())
+                 .submit();
+        Assert.assertEquals(loginPage.invalidEmailEnteredMessage(),data.getInvalidEmail());
+    }
 }
