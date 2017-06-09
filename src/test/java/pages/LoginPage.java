@@ -97,7 +97,7 @@ public class LoginPage extends BasePage {
     }
 
     @Step("Verification of incorrect password error message")
-    public String isInCorrectPasswordErrorMessageVisible(){
+    public String isIncorrectPasswordErrorMessageVisible(){
         WebDriverWait wait = new WebDriverWait(driver,4000);
         try{
             wait.until(ExpectedConditions.visibilityOf(errorMessageWrongPassword));

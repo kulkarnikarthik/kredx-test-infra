@@ -64,6 +64,15 @@ public class BasePage {
         return password;
     }
 
+    public String generateRandomPasswordOfSevenCharacters(){
+        String alphaNumerics = "qwertyuiopasdfghjklzxcvbnm1234567890";
+        String password = "";
+        for (int i = 0; i < 7; i++) {
+            password += alphaNumerics.charAt((int) (Math.random() * alphaNumerics.length()));
+        }
+        return password;
+    }
+
     public String generateRandomName(){
         String alphaNumerics = "qwertyuiopasdfghjklzxcvbnm";
         String password = "";

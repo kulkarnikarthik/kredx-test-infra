@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 @Listeners({TestListener.class})
 public class LoginFlowTest extends BaseTest {
     @Test
-    public void LoginSuccessfullTest() {
+    public void LoginSuccessfulTest() {
         driver.get(data.getUrl());
         driver.manage().timeouts().implicitlyWait(config.getTimeout(), TimeUnit.SECONDS);
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
@@ -50,7 +50,7 @@ public class LoginFlowTest extends BaseTest {
         loginPage.enterUsername(data.getUsername())
                  .inCorrectPassword()
                  .submit();
-        Assert.assertEquals(loginPage.isInCorrectPasswordErrorMessageVisible(),data.getCorrectPasswordErrorMessage());
+        Assert.assertEquals(loginPage.isIncorrectPasswordErrorMessageVisible(),data.getincorrectPasswordErrorMessage());
     }
 
     @Test

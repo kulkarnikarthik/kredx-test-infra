@@ -26,7 +26,7 @@ public class FinancierSignUpPage extends BasePage {
     @FindBy(name = "password")
     WebElement enterPassword;
 
-    @FindBy(xpath = "//div[@class = 'checkbox']/input")
+    @FindBy(id = "checkbox-accept")
     WebElement checkBox;
 
     @FindBy(xpath = "//strong[contains(text(),'WELCOME ABOARD KREDX!')]")
@@ -34,6 +34,24 @@ public class FinancierSignUpPage extends BasePage {
 
     @FindBy(xpath = "//button[contains(text(),'Submit')]")
     WebElement submitButton;
+
+    @FindBy(xpath = "//div[contains(text(),'Please enter a valid email address')]")
+    WebElement invalidEmailIdMessage;
+
+    @FindBy(xpath = "//div[contains(text(),'Please enter your full name')]")
+    WebElement nameFieldErrorMessage;
+
+    @FindBy(xpath = "//div[contains(text(),'Please enter a valid mobile number')]")
+    WebElement mobileNumberErrorMessage;
+
+    @FindBy(xpath = "//div[contains(text(),'Please enter a password with minimum of 8 characters')]")
+    WebElement insufficientCharactersErrorMessage;
+
+    @FindBy(xpath = "//div[contains(text(),'Please accept the Terms and Conditions')]")
+    WebElement uncheckedTermsAndConditions;
+
+    @FindBy(xpath = "//em[contains(text(),'This is a top-10 common password')]")
+    WebElement weakPasswordInputMessage;
 
     public FinancierSignUpPage(WebDriver driver) {
         super(driver);
@@ -57,6 +75,12 @@ public class FinancierSignUpPage extends BasePage {
         return this;
     }
 
+    @Step("Input invalid email id")
+    public FinancierSignUpPage inputInvalidEmailId(){
+        enterEmailId.sendKeys(generateRandomName());
+        return this;
+    }
+
     @Step("Input random password")
     public FinancierSignUpPage enterPassword(){
         enterPassword.sendKeys(generateRandomPassword());
@@ -65,6 +89,8 @@ public class FinancierSignUpPage extends BasePage {
 
     @Step("Accept T&C checkbox")
     public FinancierSignUpPage selectCheckBox(){
+        WebDriverWait wait = new WebDriverWait(driver, 10000);
+        wait.until(ExpectedConditions.elementToBeClickable(checkBox));
         checkBox.click();
         return this;
     }
@@ -84,6 +110,61 @@ public class FinancierSignUpPage extends BasePage {
     @Step("Clicking of submit SignUp button")
     public FinancierSignUpPage clickOnSubmitButton(){
         submitButton.click();
+        return this;
+    }
+
+    @Step("Verify invalid email id message retrived")
+    public String verifyInvalidSignupMessage(){
+        return invalidEmailIdMessage.getText();
+    }
+
+    @Step("Verify empty Name field message")
+    public String verifyEmptyNameFieldMessage(){
+        return nameFieldErrorMessage.getText();
+    }
+
+    @Step("Verify empty mobile number message")
+    public String verifyEmptyMobileFieldMessage(){
+        return mobileNumberErrorMessage.getText();
+    }
+
+    @Step("Verify empty email id message")
+    public String verifyEmptyEmptyEmailIdMessage(){
+        return invalidEmailIdMessage.getText();
+    }
+
+    @Step("Verify empty password message")
+    public String verifyEmptyPasswordMessage(){
+        return insufficientCharactersErrorMessage.getText();
+    }
+
+    @Step("Verify unchecked terms and conditions message")
+    public String verifyCheckboxNotSelectedMessage(){
+        return uncheckedTermsAndConditions.getText();
+    }
+
+    @Step("Input less than 7 character password")
+    public FinancierSignUpPage inputInsufficientCharacterPassword(){
+        enterPassword.sendKeys(generateRandomPasswordOfSevenCharacters());
+        return this;
+    }
+
+    @Step("Input weak password")
+    public FinancierSignUpPage inputWeakPassword(String weakPassword){
+        enterPassword.sendKeys(weakPassword);
+        return this;
+    }
+
+    @Step("Weak password input message")
+    public String weakPasswordInputMessage(){
+        WebDriverWait wait = new WebDriverWait(driver, 5000);
+        wait.until(ExpectedConditions.visibilityOf(weakPasswordInputMessage));
+        return weakPasswordInputMessage.getText();
+    }
+
+    @Step("Input invalid mobile number")
+    public FinancierSignUpPage inputInvalidMobileNumber(String mobileNumber){
+        enterMobileNumber.sendKeys(mobileNumber);
         return this;
     }
 }

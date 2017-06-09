@@ -23,6 +23,105 @@ public class TestData {
     private String alphanumericErrorMessage;
     private String noEmailMessage;
     private String invalidEmail;
+    private String dealAmount;
+    private String successfulDeal;
+    private String invalidSignupEmailMessage;
+    private String nameFieldErrorMessage;
+    private String mobileNumberErrorMessage;
+    private String insufficientCharactersErrorMessage;
+    private String termsAndConditionsErrorMessage;
+    private String insufficientCharacterPassword;
+    private String weakPassword;
+    private String weakPasswordMessage;
+    private String invalidMobileNumber;
+
+    public String getInvalidMobileNumber() {
+        return invalidMobileNumber;
+    }
+
+    public void setInvalidMobileNumber(String invalidMobileNumber) {
+        this.invalidMobileNumber = invalidMobileNumber;
+    }
+
+    public String getWeakPasswordMessage() {
+        return weakPasswordMessage;
+    }
+
+    public void setWeakPasswordMessage(String weakPasswordMessage) {
+        this.weakPasswordMessage = weakPasswordMessage;
+    }
+
+    public String getWeakPassword() {
+        return weakPassword;
+    }
+
+    public void setWeakPassword(String weakPassword) {
+        this.weakPassword = weakPassword;
+    }
+
+    public String getInsufficientCharacterPassword() {
+        return insufficientCharacterPassword;
+    }
+
+    public void setInsufficientCharacterPassword(String insufficientCharacterPassword) {
+        this.insufficientCharacterPassword = insufficientCharacterPassword;
+    }
+
+    public String getTermsAndConditionsErrorMessage() {
+        return termsAndConditionsErrorMessage;
+    }
+
+    public void setTermsAndConditionsErrorMessage(String termsAndConditionsErrorMessage) {
+        this.termsAndConditionsErrorMessage = termsAndConditionsErrorMessage;
+    }
+
+    public String getInsufficientCharactersErrorMessage() {
+        return insufficientCharactersErrorMessage;
+    }
+
+    public void setInsufficientCharactersErrorMessage(String insufficientCharactersErrorMessage) {
+        this.insufficientCharactersErrorMessage = insufficientCharactersErrorMessage;
+    }
+
+    public String getMobileNumberErrorMessage() {
+        return mobileNumberErrorMessage;
+    }
+
+    public void setMobileNumberErrorMessage(String mobileNumberErrorMessage) {
+        this.mobileNumberErrorMessage = mobileNumberErrorMessage;
+    }
+
+    public String getNameFieldErrorMessage() {
+        return nameFieldErrorMessage;
+    }
+
+    public void setNameFieldErrorMessage(String nameFieldErrorMessage) {
+        this.nameFieldErrorMessage = nameFieldErrorMessage;
+    }
+
+    public String getInvalidSignupEmailMessage() {
+        return invalidSignupEmailMessage;
+    }
+
+    public void setInvalidSignupEmailMessage(String invalidSignupEmailMessage) {
+        this.invalidSignupEmailMessage = invalidSignupEmailMessage;
+    }
+
+    public String getSuccessfulDealMessage() {
+        return successfulDeal;
+    }
+
+    public void setSuccessfulDeal(String successfulDeal) {
+        this.successfulDeal = successfulDeal;
+    }
+
+    public String getDealAmount() {
+        return dealAmount;
+    }
+
+    public void setDealAmount(String dealAmount) {
+        this.dealAmount = dealAmount;
+    }
 
     public String getInvalidEmail() {
         return invalidEmail;
@@ -124,7 +223,7 @@ public class TestData {
         this.loggedInMessage = loggedInMessage;
     }
 
-    public String getCorrectPasswordErrorMessage() {
+    public String getincorrectPasswordErrorMessage() {
         return inCorrectPasswordErrorMessage;
     }
 

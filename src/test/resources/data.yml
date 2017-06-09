@@ -13,9 +13,20 @@ createdAccountMessage: WELCOME ABOARD KREDX!
 noPasswordMessage: Please enter your password
 noEmailMessage: Please enter your registered email
 invalidEmail: Email Provided is not valid
-amount: 1
+amount: 30
 inputRemark: top up
 tpslLogin: test
 tpslPassword: test
 successfulWalletTopUp: Congratulations
 alphanumericErrorMessage: Please enter a valid amount for topup.
+dealAmount: 30
+successfulDeal: Transaction Successful
+invalidSignupEmailMessage: Please enter a valid email address
+nameFieldErrorMessage: Please enter your full name
+mobileNumberErrorMessage: Please enter a valid mobile number
+insufficientCharactersErrorMessage: Please enter a password with minimum of 8 characters
+termsAndConditionsErrorMessage: Please accept the Terms and Conditions
+insufficientCharacterPassword: pquwrtd
+weakPassword: 12345678
+weakPasswordMessage: This is a top-10 common password
+invalidMobileNumber: 710

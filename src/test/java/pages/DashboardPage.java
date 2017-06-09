@@ -36,7 +36,7 @@ public class DashboardPage extends BasePage {
         super(driver);
     }
 
-    public void clickDeals() {
+    public void clickOnCurrentDeals() {
         dealsLink.click();
     }
 
@@ -75,4 +75,9 @@ public class DashboardPage extends BasePage {
         return successfulTransactionMessage.getText();
     }
 
+    @Step("click on dashboard icon")
+    public DashboardPage clickOnDashBoard(){
+        dashboardIcon.click();
+        return this;
+    }
 }
