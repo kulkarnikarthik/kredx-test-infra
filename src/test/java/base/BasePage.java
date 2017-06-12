@@ -1,9 +1,11 @@
 package base;
 
+import models.ui.TestData;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Attachment;
+import util.YamlReader;
 
 import java.util.Random;
 import java.util.Set;
@@ -15,10 +17,12 @@ public class BasePage {
     protected WebDriver driver;
     protected String parentWindow;
     protected Set<String> handles;
+    protected TestData data;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
         saveScreenshot();
+        data = new YamlReader("data.yml").readTestData();
     }
 
     protected boolean isVisible(WebElement element) {
@@ -48,15 +52,14 @@ public class BasePage {
     }
 
     public String generateRandomMobileNumber(){
-        String num = "710040";
-
+        String num = data.getMobileNumberPrefix();
         Random random = new Random();
         String endingNum = String.format("%04d", random.nextInt(10000));
         return num + endingNum;
     }
 
     public String generateRandomPassword(){
-        String alphaNumerics = "qwertyuiopasdfghjklzxcvbnm1234567890";
+        String alphaNumerics = data.getRandomText();
         String password = "";
         for (int i = 0; i < 8; i++) {
             password += alphaNumerics.charAt((int) (Math.random() * alphaNumerics.length()));
@@ -65,7 +68,7 @@ public class BasePage {
     }
 
     public String generateRandomPasswordOfSevenCharacters(){
-        String alphaNumerics = "qwertyuiopasdfghjklzxcvbnm1234567890";
+        String alphaNumerics = data.getRandomText();
         String password = "";
         for (int i = 0; i < 7; i++) {
             password += alphaNumerics.charAt((int) (Math.random() * alphaNumerics.length()));
@@ -74,7 +77,7 @@ public class BasePage {
     }
 
     public String generateRandomName(){
-        String alphaNumerics = "qwertyuiopasdfghjklzxcvbnm";
+        String alphaNumerics = data.getRandomText();
         String password = "";
         for (int i = 0; i < 8; i++) {
             password += alphaNumerics.charAt((int) (Math.random() * alphaNumerics.length()));

@@ -1,25 +1,25 @@
 # update the /src/test/java/setup/TestData.java accordingly
 
-url: https://dev.kredx.com/login
-username: deepak.iit+kf@gmail.com
+url: https://staging.kredx.com/login
+username: ajayta+test1@kredx.com
 password: kredxtest
 name: L Messi
 mobileNumber: 7100403576
 emailId: r5@yopmail.com
-inCorrectPasswordErrorMessage: Incorrect email or password.
+incorrectPasswordErrorMessage: Incorrect email or password.
 loggedInMessage: Dashboard
 userLoggedOutMessage: New to KredX?
 createdAccountMessage: WELCOME ABOARD KREDX!
 noPasswordMessage: Please enter your password
 noEmailMessage: Please enter your registered email
 invalidEmail: Email Provided is not valid
-amount: 30
+amount: 1
 inputRemark: top up
 tpslLogin: test
 tpslPassword: test
 successfulWalletTopUp: Congratulations
-alphanumericErrorMessage: Please enter a valid amount for topup.
-dealAmount: 30
+alphanumericErrorMessage: Please enter a valid amount for netbanking transactions
+dealAmount: 1
 successfulDeal: Transaction Successful
 invalidSignupEmailMessage: Please enter a valid email address
 nameFieldErrorMessage: Please enter your full name
@@ -30,3 +30,6 @@ insufficientCharacterPassword: pquwrtd
 weakPassword: 12345678
 weakPasswordMessage: This is a top-10 common password
 invalidMobileNumber: 710
+randomText: qwertyuiopasdfghjklzxcvbnm
+mobileNumberPrefix: 710040
+otp: 000000

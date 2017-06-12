@@ -10,7 +10,7 @@ public class TestData {
     private String name;
     private String mobileNumber;
     private String emailId;
-    private String inCorrectPasswordErrorMessage;
+    private String incorrectPasswordErrorMessage;
     private String loggedInMessage;
     private String userLoggedOutMessage;
     private String createdAccountMessage;
@@ -34,6 +34,33 @@ public class TestData {
     private String weakPassword;
     private String weakPasswordMessage;
     private String invalidMobileNumber;
+    private String randomText;
+    private String mobileNumberPrefix;
+    private String otp;
+
+    public String getOtp() {
+        return otp;
+    }
+
+    public void setOtp(String otp) {
+        this.otp = otp;
+    }
+
+    public String getMobileNumberPrefix() {
+        return mobileNumberPrefix;
+    }
+
+    public void setMobileNumberPrefix(String mobileNumberPrefix) {
+        this.mobileNumberPrefix = mobileNumberPrefix;
+    }
+
+    public String getRandomText() {
+        return randomText;
+    }
+
+    public void setRandomText(String randomText) {
+        this.randomText = randomText;
+    }
 
     public String getInvalidMobileNumber() {
         return invalidMobileNumber;
@@ -179,10 +206,6 @@ public class TestData {
         this.inputRemark = inputRemark;
     }
 
-    public String getInCorrectPasswordErrorMessage() {
-        return inCorrectPasswordErrorMessage;
-    }
-
     public String getAmount() {
         return amount;
     }
@@ -223,12 +246,12 @@ public class TestData {
         this.loggedInMessage = loggedInMessage;
     }
 
-    public String getincorrectPasswordErrorMessage() {
-        return inCorrectPasswordErrorMessage;
+    public String getIncorrectPasswordErrorMessage() {
+        return incorrectPasswordErrorMessage;
     }
 
-    public void setInCorrectPasswordErrorMessage(String inCorrectPasswordErrorMessage) {
-        this.inCorrectPasswordErrorMessage = inCorrectPasswordErrorMessage;
+    public void setIncorrectPasswordErrorMessage(String incorrectPasswordErrorMessage) {
+        this.incorrectPasswordErrorMessage = incorrectPasswordErrorMessage;
     }
 
     public String getName() {

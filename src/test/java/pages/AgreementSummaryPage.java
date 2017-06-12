@@ -30,7 +30,7 @@ public class AgreementSummaryPage extends BasePage {
     @FindBy(xpath="//div[@class='m-signature-pad--body']")
    public static WebElement signatureTextArea;
 
-    @FindBy(xpath = "//button[contains(text(),'Accept and Proceed To Payment')]")
+    @FindBy(xpath = "//button[contains(text(),'Accept and Send OTP')]")
     WebElement afterSignButton;
 
     @FindBy(xpath = "//input[@value = 'VIRTUAL-PAD']")
@@ -38,6 +38,12 @@ public class AgreementSummaryPage extends BasePage {
 
     @FindBy(xpath = "//div[@id='root']/div/div[2]/button")
     WebElement dismissPopup;
+
+    @FindBy(xpath = "//input[@placeholder = 'Enter OTP']")
+    WebElement inputOtp;
+
+    @FindBy(xpath = "//button[contains(text(),'Verify')]")
+    WebElement verifyOtp;
 
     public AgreementSummaryPage(WebDriver driver) {
         super(driver);
@@ -57,11 +63,6 @@ public class AgreementSummaryPage extends BasePage {
 
     @Step("Click on Select here to sign button")
     public AgreementSummaryPage clickConfirmButton(){
-//        try {
-//            Thread.sleep(5000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
         driver.switchTo().defaultContent();
         confirmButton.click();
         return this;
@@ -90,13 +91,20 @@ public class AgreementSummaryPage extends BasePage {
         return this;
     }
 
-    @Step("Signature on virtual pag")
+    @Step("Signature on virtual pad")
     public AgreementSummaryPage signatureOnVirtualPad(){
         Actions builder = new Actions(driver);
         Action drawAction = builder.moveToElement(AgreementSummaryPage.signatureTextArea,135,15) //start points x axis and y axis.
                 .clickAndHold().moveByOffset(165,15).moveByOffset(185,15)
                 .build();
         drawAction.perform();
+        return this;
+    }
+
+    @Step("input and verify OTP")
+    public AgreementSummaryPage inputOtpAndVerify(){
+        inputOtp.sendKeys(data.getOtp());
+        verifyOtp.click();
         return this;
     }
 }

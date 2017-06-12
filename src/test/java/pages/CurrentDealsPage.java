@@ -13,14 +13,14 @@ import ru.yandex.qatools.allure.annotations.Step;
  */
 public class CurrentDealsPage extends BasePage {
 
-    @FindBy(xpath = "//div[div[div[a[@href='/financier/dashboard/deals/DEZ08LWKMN']]]]/div[3]/div/div[2]/div/div/div/input")
-    WebElement entNameDealAmount;
+    @FindBy(xpath = "//div[div[div[div[h5[contains(text(),'Sv Industries 2')]]]]]/div[3]/div/div[2]/div/div/div/input")
+    WebElement svIndustriesDealAmount;
 
-    @FindBy(xpath = "//div[div[div[div[a[@href='/financier/dashboard/deals/DEZ08LWKMN']]]]]//div[3]/div/div[2]/div[2]/div/button")
-    WebElement entNameBuyNowButton;
+    @FindBy(xpath = "//div[div[div[div[h5[contains(text(),'Sv Industries 2')]]]]]/div[3]/div/div[2]/div[2]/div/button")
+    WebElement svIndustriesBuyNowButton;
 
-    @FindBy(xpath = "//a[@href = '/financier/dashboard/deals/DEZ08LWKMN']/button")
-    WebElement entNameShowDealsButton;
+    @FindBy(xpath = "//div[div[div[h5[contains(text(),'Sv Industries 2')]]]]/div[2]/a/button")
+    WebElement svIndustriesShowDealsButton;
 
     @FindBy(xpath = "//button[contains(text(),'Buy Now')]")
     WebElement onCurrentDealsPageText;
@@ -41,17 +41,17 @@ public class CurrentDealsPage extends BasePage {
 
     @Step("Enter deal amount for Ent-Name Deal")
     public CurrentDealsPage inputDealAmount(String amount){
-        entNameDealAmount.sendKeys(amount);
+        svIndustriesDealAmount.sendKeys(amount);
         return this;
     }
 
     @Step("Click on Ent-Name Buy now")
     public void clickOnBuyNowButton(){
-        entNameBuyNowButton.click();
+        svIndustriesBuyNowButton.click();
     }
 
     @Step("Successful deal confirmation")
-    public String successfulDealConfirmation(){
+    public String getDealConfirmationMessage(){
         return transactionSuccessfulText.getText();
     }
 }

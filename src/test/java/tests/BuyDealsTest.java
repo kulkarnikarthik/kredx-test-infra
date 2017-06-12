@@ -8,8 +8,6 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.*;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * Created by ken.dsilva on 09/06/17.
  */
@@ -18,7 +16,6 @@ public class BuyDealsTest extends BaseTest {
     @Test
     public void successfulBuyDealTest(){
         driver.get(data.getUrl());
-        driver.manage().timeouts().implicitlyWait(config.getTimeout(), TimeUnit.SECONDS);
 
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
         loginPage.enterUsername(data.getUsername())
@@ -39,18 +36,13 @@ public class BuyDealsTest extends BaseTest {
         AgreementSummaryPage agreementSummaryPage = PageFactory.initElements(driver, AgreementSummaryPage.class);
         agreementSummaryPage.selectAcceptCheckbox()
                             .selectRiskCheckbox()
-//                          .dismissHelpPopup()    //the pop-up occurs at random times
                             .clickConfirmButton()
                             .selectVirtualPadOption()
                             .signatureOnVirtualPad()
-                            .clickAfterSign();
+                            .clickAfterSign()
+                            .inputOtpAndVerify();
 
-        PaymentsPage paymentsPage = PageFactory.initElements(driver, PaymentsPage.class);
-        paymentsPage.typeRemarks()
-                    .clickPay()
-                    .clickOnConfirmPay();
-
-        Assert.assertEquals(currentDealsPage.successfulDealConfirmation(),data.getSuccessfulDealMessage());
+        Assert.assertEquals(currentDealsPage.getDealConfirmationMessage(),data.getSuccessfulDealMessage());
         dashboardPage.clickOnDashBoard()
                      .logoutUser();
     }

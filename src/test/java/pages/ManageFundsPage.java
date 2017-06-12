@@ -24,10 +24,10 @@ public class ManageFundsPage extends BasePage {
     @FindBy(linkText = "Add Funds")
     WebElement addFundsButton;
 
-    @FindBy(xpath = "//button[contains(text(),'Add Funds via Netbanking')]")
+    @FindBy(xpath = "//button[contains(text(),'Net banking')]")
     WebElement clickOnNetBankingButton;
 
-    @FindBy(xpath = ".//div[contains(text(),'Please enter a valid amount for topup.')]")
+    @FindBy(xpath = ".//div[contains(text(),'Please enter a valid amount for netbanking transactions')]")
     WebElement alphaNumericErrorMessageOnInvalidAmount;
 
     public ManageFundsPage(WebDriver driver) {

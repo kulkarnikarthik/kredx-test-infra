@@ -50,7 +50,7 @@ public class LoginFlowTest extends BaseTest {
         loginPage.enterUsername(data.getUsername())
                  .inCorrectPassword()
                  .submit();
-        Assert.assertEquals(loginPage.isIncorrectPasswordErrorMessageVisible(),data.getincorrectPasswordErrorMessage());
+        Assert.assertEquals(loginPage.isIncorrectPasswordErrorMessageVisible(),data.getIncorrectPasswordErrorMessage());
     }
 
     @Test
