@@ -77,8 +77,6 @@ public class DashboardPage extends BasePage {
 
     @Step("click on dashboard icon")
     public DashboardPage clickOnDashBoard(){
-        WebDriverWait wait = new WebDriverWait(driver, 5000);
-        wait.until(ExpectedConditions.elementToBeClickable(dashboardIcon));
         dashboardIcon.click();
         return this;
     }

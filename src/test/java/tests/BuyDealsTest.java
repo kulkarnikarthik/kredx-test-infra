@@ -43,7 +43,6 @@ public class BuyDealsTest extends BaseTest {
                             .inputOtpAndVerify();
 
         Assert.assertEquals(currentDealsPage.getDealConfirmationMessage(),data.getSuccessfulDealMessage());
-        dashboardPage.clickOnDashBoard()
-                     .logoutUser();
+        currentDealsPage.logoutUser();
     }
 }

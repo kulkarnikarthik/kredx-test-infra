@@ -28,6 +28,12 @@ public class CurrentDealsPage extends BasePage {
     @FindBy(xpath = "//strong[contains(text(),'Transaction Successful')]")
     WebElement transactionSuccessfulText;
 
+    @FindBy(xpath = "//div[@class = 'navbar-account-body']/div/span")
+    WebElement clickOnProfileDropdown;
+
+    @FindBy(xpath = "//li[contains(text(),'LOG OUT')]")
+    WebElement logoutButton;
+
     public CurrentDealsPage(WebDriver driver) {
         super(driver);
     }
@@ -53,5 +59,16 @@ public class CurrentDealsPage extends BasePage {
     @Step("Successful deal confirmation")
     public String getDealConfirmationMessage(){
         return transactionSuccessfulText.getText();
+    }
+
+    @Step("User logged out")
+    public CurrentDealsPage logoutUser(){
+        WebDriverWait wait = new WebDriverWait(driver, 10000);
+        wait.until(ExpectedConditions.elementToBeClickable(clickOnProfileDropdown));
+        clickOnProfileDropdown.click();
+
+        wait.until(ExpectedConditions.elementToBeClickable(logoutButton));
+        logoutButton.click();
+        return this;
     }
 }
