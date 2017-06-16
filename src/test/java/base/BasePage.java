@@ -18,6 +18,7 @@ public class BasePage {
     protected String parentWindow;
     protected Set<String> handles;
     protected TestData data;
+    private final int timeout = 20;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -59,19 +60,19 @@ public class BasePage {
     }
 
     public String generateRandomPassword(){
-        String alphaNumerics = data.getRandomText();
+        String alphaNumeric = data.getRandomText();
         String password = "";
         for (int i = 0; i < 8; i++) {
-            password += alphaNumerics.charAt((int) (Math.random() * alphaNumerics.length()));
+            password += alphaNumeric.charAt((int) (Math.random() * alphaNumeric.length()));
         }
         return password;
     }
 
     public String generateRandomPasswordOfSevenCharacters(){
-        String alphaNumerics = data.getRandomText();
+        String alphaNumeric = data.getRandomText();
         String password = "";
         for (int i = 0; i < 7; i++) {
-            password += alphaNumerics.charAt((int) (Math.random() * alphaNumerics.length()));
+            password += alphaNumeric.charAt((int) (Math.random() * alphaNumeric.length()));
         }
         return password;
     }
@@ -83,5 +84,30 @@ public class BasePage {
             password += alphaNumerics.charAt((int) (Math.random() * alphaNumerics.length()));
         }
         return password;
+    }
+
+    protected void waitForElement(WebElement element) {
+        int pollingDuration = 500;
+        boolean visible = false;
+        for (int i = 0; i < timeout; i++) {
+            try {
+                visible = element.isDisplayed();
+                break;
+            } catch (Exception e) {
+            }
+            waitFor(pollingDuration);
+        }
+        if (!visible) {
+            throw new NoSuchElementException("Element: " + element + " not found");
+        }
+    }
+
+    private void waitFor(int pollingDuration) {
+        System.out.println("waiting for: " + pollingDuration);
+        try {
+            Thread.sleep(pollingDuration);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

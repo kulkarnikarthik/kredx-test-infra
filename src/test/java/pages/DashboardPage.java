@@ -1,13 +1,10 @@
 package pages;
 
 import base.BasePage;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
 
 /**
@@ -41,23 +38,16 @@ public class DashboardPage extends BasePage {
     }
 
     public String confirmOnDashboardPage(){
-        WebDriverWait wait = new WebDriverWait(driver,4000);
-        try{
-            wait.until(ExpectedConditions.visibilityOf(dashboardIcon));
-            return  dashboardIcon.getText();
-        }
-        catch(NoSuchElementException e){
-            return "not found";
-        }
+        waitForElement(dashboardIcon);
+        return dashboardIcon.getText();
     }
 
     @Step("User logged out")
     public DashboardPage logoutUser(){
-        WebDriverWait wait = new WebDriverWait(driver, 10000);
-        wait.until(ExpectedConditions.elementToBeClickable(clickOnProfileDropdown));
+        waitForElement(clickOnProfileDropdown);
         clickOnProfileDropdown.click();
 
-        wait.until(ExpectedConditions.elementToBeClickable(logoutButton));
+        waitForElement(logoutButton);
         logoutButton.click();
         return this;
     }
@@ -70,8 +60,7 @@ public class DashboardPage extends BasePage {
 
     @Step("successful transaction message")
     public String successfulTransactionMessage(){
-        WebDriverWait wait = new WebDriverWait(driver, 10000);
-        wait.until(ExpectedConditions.visibilityOf(successfulTransactionMessage));
+        waitForElement(successfulTransactionMessage);
         return successfulTransactionMessage.getText();
     }
 

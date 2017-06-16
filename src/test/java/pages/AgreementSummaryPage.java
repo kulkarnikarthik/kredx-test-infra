@@ -1,13 +1,10 @@
 package pages;
 
 import base.BasePage;
-import org.junit.experimental.theories.Theories;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.security.Credentials;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -51,6 +48,7 @@ public class AgreementSummaryPage extends BasePage {
 
     @Step("Select T&C checkbox")
     public AgreementSummaryPage selectAcceptCheckbox(){
+        waitForElement(acceptCheckbox); //added new wait
         acceptCheckbox.click();
         return this;
     }
@@ -64,20 +62,21 @@ public class AgreementSummaryPage extends BasePage {
     @Step("Click on Select here to sign button")
     public AgreementSummaryPage clickConfirmButton(){
         driver.switchTo().defaultContent();
+        waitForElement(confirmButton);
         confirmButton.click();
         return this;
     }
 
     @Step("Click on accept to proceed to payment button")
     public AgreementSummaryPage clickAfterSign(){
+        waitForElement(afterSignButton);
         afterSignButton.click();
         return this;
     }
 
     @Step("Selecting virtual pad option")
     public AgreementSummaryPage selectVirtualPadOption(){
-        WebDriverWait wait = new WebDriverWait(driver, 5000);
-        wait.until(ExpectedConditions.elementToBeClickable(virtualPadOption));
+        waitForElement(virtualPadOption);
         virtualPadOption.click();
         return this;
     }

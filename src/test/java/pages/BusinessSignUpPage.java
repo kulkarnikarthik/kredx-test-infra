@@ -4,8 +4,6 @@ import base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
 
 /**
@@ -76,8 +74,7 @@ public class BusinessSignUpPage extends BasePage {
 
     @Step("Returning successful sign up message")
     public String getSuccessfulSignupMessage(){
-        WebDriverWait wait = new WebDriverWait(driver, 3000);
-        wait.until(ExpectedConditions.visibilityOf(successfulSignupText));
+        waitForElement(successfulSignupText);
         return successfulSignupText.getText();
     }
 

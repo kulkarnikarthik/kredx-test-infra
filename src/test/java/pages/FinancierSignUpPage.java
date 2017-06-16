@@ -1,12 +1,9 @@
 package pages;
 
 import base.BasePage;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
 
 /**
@@ -89,22 +86,15 @@ public class FinancierSignUpPage extends BasePage {
 
     @Step("Accept T&C checkbox")
     public FinancierSignUpPage selectCheckBox(){
-        WebDriverWait wait = new WebDriverWait(driver, 10000);
-        wait.until(ExpectedConditions.elementToBeClickable(checkBox));
+        waitForElement(checkBox);
         checkBox.click();
         return this;
     }
 
     @Step("Verification of Account created page landing")
     public String onAccountCreatedPage(){
-        WebDriverWait wait = new WebDriverWait(driver,4000);
-        try{
-            wait.until(ExpectedConditions.visibilityOf(welcomeToKredx));
-            return  welcomeToKredx.getText();
-        }
-        catch(NoSuchElementException e){
-            return "not found";
-        }
+        waitForElement(welcomeToKredx);
+        return welcomeToKredx.getText();
     }
 
     @Step("Clicking of submit SignUp button")
@@ -157,8 +147,7 @@ public class FinancierSignUpPage extends BasePage {
 
     @Step("Weak password input message")
     public String weakPasswordInputMessage(){
-        WebDriverWait wait = new WebDriverWait(driver, 5000);
-        wait.until(ExpectedConditions.visibilityOf(weakPasswordInputMessage));
+        waitForElement(weakPasswordInputMessage);
         return weakPasswordInputMessage.getText();
     }
 

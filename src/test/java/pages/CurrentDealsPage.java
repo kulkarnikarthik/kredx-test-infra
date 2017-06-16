@@ -4,8 +4,6 @@ import base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
 
 /**
@@ -40,8 +38,7 @@ public class CurrentDealsPage extends BasePage {
 
     @Step("Verify on Current Deals page")
     public String verifyOnCurrentDealsPage(){
-        WebDriverWait wait = new WebDriverWait(driver, 5000);
-        wait.until(ExpectedConditions.elementToBeClickable(onCurrentDealsPageText));
+        waitForElement(onCurrentDealsPageText);
         return onCurrentDealsPageText.getText();
     }
 
@@ -63,11 +60,10 @@ public class CurrentDealsPage extends BasePage {
 
     @Step("User logged out")
     public CurrentDealsPage logoutUser(){
-        WebDriverWait wait = new WebDriverWait(driver, 10000);
-        wait.until(ExpectedConditions.elementToBeClickable(clickOnProfileDropdown));
+        waitForElement(clickOnProfileDropdown);
         clickOnProfileDropdown.click();
 
-        wait.until(ExpectedConditions.elementToBeClickable(logoutButton));
+        waitForElement(logoutButton);
         logoutButton.click();
         return this;
     }
