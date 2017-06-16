@@ -38,6 +38,9 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//div[contains(text(),'Email Provided is not valid')]")
     WebElement invalidEmailMessage;
 
+    @FindBy(xpath = "//a[contains(text(),'Sign up as a Business')]")
+    WebElement businessSignupLink;
+
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -126,11 +129,16 @@ public class LoginPage extends BasePage {
         try{
         wait.until(ExpectedConditions.visibilityOf(invalidEmailMessage));
         return invalidEmailMessage.getText();
-    }
+        }
         catch(NoSuchElementException e){
         return "not found";
+        }
     }
-}
 
-
+    @Step("Click on business sign up link")
+    public void clickOnBusinessSignuplink(){
+        WebDriverWait wait = new WebDriverWait(driver, 3000);
+        wait.until(ExpectedConditions.elementToBeClickable(businessSignupLink));
+        businessSignupLink.click();
+    }
 }

@@ -13,7 +13,7 @@ import pages.LoginPage;
  * Created by ken.dsilva on 26/05/17.
  */
 @Listeners({TestListener.class})
-public class InvestorSignUpTest extends BaseTest {
+public class InvestorSignupTest extends BaseTest {
 //  will rewrite this test once delete api is available
 //    @Test
 //    public void successfulSignUpTest(){

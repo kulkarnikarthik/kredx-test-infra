@@ -37,6 +37,15 @@ public class TestData {
     private String randomText;
     private String mobileNumberPrefix;
     private String otp;
+    private String sucessfulSignupText;
+
+    public String getSucessfulSignupText() {
+        return sucessfulSignupText;
+    }
+
+    public void setSucessfulSignupText(String sucessfulSignupText) {
+        this.sucessfulSignupText = sucessfulSignupText;
+    }
 
     public String getOtp() {
         return otp;
