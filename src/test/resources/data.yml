@@ -34,3 +34,4 @@ randomText: qwertyuiopasdfghjklzxcvbnm
 mobileNumberPrefix: 710040
 otp: 000000
 sucessfulSignupText: THANK YOU FOR REGISTERING
+emptyOrganisationErrorMessage: Please enter name of your organisation

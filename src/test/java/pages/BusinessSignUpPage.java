@@ -31,6 +31,15 @@ public class BusinessSignUpPage extends BasePage {
     @FindBy(xpath = "//h3[contains(text(),'Thank you for Registering')]")
     WebElement successfulSignupText;
 
+    @FindBy(xpath = "//li[contains(text(),'Please enter a valid email address')]")
+    WebElement invalidEmailEnteredMessage;
+
+    @FindBy(xpath = "//li[contains(text(),'Please enter a valid mobile number')]")
+    WebElement invalidMobileNumberEnteredMessage;
+
+    @FindBy(xpath = "//li[contains(text(),'Please enter name of your organisation')]")
+    WebElement emptyOrganisationFieldMessage;
+
     public BusinessSignUpPage(WebDriver driver) {
         super(driver);
     }
@@ -66,9 +75,43 @@ public class BusinessSignUpPage extends BasePage {
     }
 
     @Step("Returning successful sign up message")
-    public String getsuccessfulSignupMessage(){
+    public String getSuccessfulSignupMessage(){
         WebDriverWait wait = new WebDriverWait(driver, 3000);
         wait.until(ExpectedConditions.visibilityOf(successfulSignupText));
         return successfulSignupText.getText();
+    }
+
+    @Step("Input invalid email id")
+    public BusinessSignUpPage enterInvalidEmailId(){
+        emailField.sendKeys(generateRandomName());
+        return this;
+    }
+
+    @Step("Retrieving invalid email message")
+    public String getInvalidEmailMessage(){
+        return invalidEmailEnteredMessage.getText();
+    }
+
+    @Step("Input invalid mobile number")
+    public BusinessSignUpPage enterInvalidMobileNumber(){
+        mobileField.sendKeys(data.getInvalidMobileNumber());
+        return this;
+    }
+
+    @Step("Retrieving invalid mobile number message")
+    public String getInvalidMobileNumberMessage(){
+        return invalidMobileNumberEnteredMessage.getText();
+    }
+
+    @Step("Setting empty organisation name")
+    public BusinessSignUpPage clickOnOrganisationName(){
+        organizationNameField.click();
+        mobileField.click();
+        return this;
+    }
+
+    @Step("Retrieving empty organisation field error message")
+    public String getEmptyOrganisationFieldErrorMessage(){
+        return emptyOrganisationFieldMessage.getText();
     }
 }

@@ -37,14 +37,23 @@ public class TestData {
     private String randomText;
     private String mobileNumberPrefix;
     private String otp;
-    private String sucessfulSignupText;
+    private String successfulSignupText;
+    private String emptyOrganisationErrorMessage;
 
-    public String getSucessfulSignupText() {
-        return sucessfulSignupText;
+    public String getEmptyOrganisationErrorMessage() {
+        return emptyOrganisationErrorMessage;
     }
 
-    public void setSucessfulSignupText(String sucessfulSignupText) {
-        this.sucessfulSignupText = sucessfulSignupText;
+    public void setEmptyOrganisationErrorMessage(String emptyOrganisationErrorMessage) {
+        this.emptyOrganisationErrorMessage = emptyOrganisationErrorMessage;
+    }
+
+    public String getSuccessfulSignupText() {
+        return successfulSignupText;
+    }
+
+    public void setSucessfulSignupText(String successfulSignupText) {
+        this.successfulSignupText = successfulSignupText;
     }
 
     public String getOtp() {
