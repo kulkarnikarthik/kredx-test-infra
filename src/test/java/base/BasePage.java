@@ -102,6 +102,22 @@ public class BasePage {
         }
     }
 
+    protected void waitForElementToBeClickable(WebElement element) {
+        int pollingDuration = 500;
+        boolean visible = false;
+        for (int i = 0; i < timeout; i++) {
+            try {
+                visible = element.isEnabled();
+                break;
+            } catch (Exception e) {
+            }
+            waitFor(pollingDuration);
+        }
+        if (!visible) {
+            throw new NoSuchElementException("Element: " + element + " not clickable");
+        }
+    }
+
     private void waitFor(int pollingDuration) {
         System.out.println("waiting for: " + pollingDuration);
         try {
