@@ -76,7 +76,9 @@ public class AgreementSummaryPage extends BasePage {
 
     @Step("Selecting virtual pad option")
     public AgreementSummaryPage selectVirtualPadOption(){
-        waitForElement(virtualPadOption);
+//        waitForElement(virtualPadOption);
+        WebDriverWait wait = new WebDriverWait(driver,2000);
+        wait.until(ExpectedConditions.elementToBeClickable(virtualPadOption));
         virtualPadOption.click();
         return this;
     }
