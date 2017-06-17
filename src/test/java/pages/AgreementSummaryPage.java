@@ -118,7 +118,7 @@ public class AgreementSummaryPage extends BasePage {
 
     @Step("Input invalid Aadhaar number")
     public AgreementSummaryPage enterInvalidAadharNumber(){
-        writeTextInField(aadhaarNumberField,data.getInvalidMobileNumber());
+        writeTextInField(aadhaarNumberField,data.getRandomText());
         return this;
     }
 

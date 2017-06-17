@@ -26,7 +26,6 @@ public class CurrentDealsPage extends BasePage {
     @FindBy(xpath = "//strong[contains(text(),'Transaction Successful')]")
     WebElement transactionSuccessfulText;
 
-//    @FindBy(xpath = "//div[@class = 'navbar-account-body']/div/span")
     @FindBy(xpath = "//div[@class='name']/span")
     WebElement clickOnProfileDropdown;
 
