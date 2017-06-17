@@ -44,6 +44,7 @@ public class BusinessSignUpPage extends BasePage {
 
     @Step("Entering name")
     public BusinessSignUpPage enterName(){
+        waitForElement(nameField);
         nameField.sendKeys(generateRandomName());
         return this;
     }
