@@ -126,4 +126,14 @@ public class BasePage {
             e.printStackTrace();
         }
     }
+
+    public void clickOnElement(WebElement webElement){
+        waitForElement(webElement);
+        webElement.click();
+    }
+
+    public void writeTextInField(WebElement webElement,String text){
+        waitForElement(webElement);
+        webElement.sendKeys(text);
+    }
 }

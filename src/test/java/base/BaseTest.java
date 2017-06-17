@@ -69,8 +69,7 @@ public class BaseTest {
         prefs.put("credentials_enable_service", false);
         prefs.put("password_manager_enabled", false);
         options.setExperimentalOption("prefs", prefs);
-//        options.addArguments("--kiosk");     //      maximizes screen
-     //   driver.manage().window().setSize();
+        options.addArguments("--kiosk");     //      maximizes screen
         capabilities.setCapability(ChromeOptions.CAPABILITY, options);
         return this;
     }

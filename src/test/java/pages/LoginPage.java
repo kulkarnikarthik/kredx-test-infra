@@ -44,13 +44,15 @@ public class LoginPage extends BasePage {
 
     @Step("Entering valid username")
     public LoginPage enterUsername(String username) {
-        email.sendKeys(username);
+//        email.sendKeys(username);
+        writeTextInField(email,username);
         return this;
     }
 
     @Step("Entering valid password")
     public LoginPage enterPassword(String password) {
-        this.password.sendKeys(password);
+//        this.password.sendKeys(password);
+        writeTextInField(this.password,password);
         return this;
     }
 
@@ -66,8 +68,9 @@ public class LoginPage extends BasePage {
 
     @Step("Navigating to investor signup page")
     public LoginPage goToSignUpAsInvestorPage(){
-        waitForElement(signUpAsInvestor);
-        signUpAsInvestor.click();
+//        waitForElement(signUpAsInvestor);
+//        signUpAsInvestor.click();
+        clickOnElement(signUpAsInvestor);
         return this;
     }
 
@@ -79,7 +82,8 @@ public class LoginPage extends BasePage {
 
     @Step("Input invalid password")
     public LoginPage inCorrectPassword() {
-        this.password.sendKeys(generateRandomPassword());
+//        this.password.sendKeys(generateRandomPassword());
+        writeTextInField(this.password,generateRandomPassword());
         return this;
     }
 
@@ -103,7 +107,8 @@ public class LoginPage extends BasePage {
 
     @Step("Click on business sign up link")
     public void clickOnBusinessSignuplink(){
-        waitForElement(businessSignupLink);
-        businessSignupLink.click();
+//        waitForElement(businessSignupLink);
+//        businessSignupLink.click();
+        clickOnElement(businessSignupLink);
     }
 }

@@ -56,38 +56,44 @@ public class FinancierSignUpPage extends BasePage {
 
     @Step("Input random username")
     public FinancierSignUpPage enterUserName(){
-        enterUserName.sendKeys(generateRandomName());
+//        enterUserName.sendKeys(generateRandomName());
+        writeTextInField(enterUserName,generateRandomName());
         return this;
     }
 
     @Step("Input random mobile number")
     public FinancierSignUpPage enterMobileNumber(){
-        enterMobileNumber.sendKeys(generateRandomMobileNumber());
+//        enterMobileNumber.sendKeys(generateRandomMobileNumber());
+        writeTextInField(enterMobileNumber,generateRandomMobileNumber());
         return this;
     }
 
     @Step("Input random email id")
     public FinancierSignUpPage enterEmailId(String emailId){
-        enterEmailId.sendKeys(generateRandomPassword() + emailId);
+//        enterEmailId.sendKeys(generateRandomPassword() + emailId);
+        writeTextInField(enterEmailId,generateRandomPassword() + emailId);
         return this;
     }
 
     @Step("Input invalid email id")
     public FinancierSignUpPage inputInvalidEmailId(){
-        enterEmailId.sendKeys(generateRandomName());
+//        enterEmailId.sendKeys(generateRandomName());
+        writeTextInField(enterEmailId,generateRandomName());
         return this;
     }
 
     @Step("Input random password")
     public FinancierSignUpPage enterPassword(){
-        enterPassword.sendKeys(generateRandomPassword());
+//        enterPassword.sendKeys(generateRandomPassword());
+        writeTextInField(enterPassword,generateRandomPassword());
         return this;
     }
 
     @Step("Accept T&C checkbox")
     public FinancierSignUpPage selectCheckBox(){
-        waitForElement(checkBox);
-        checkBox.click();
+//        waitForElement(checkBox);
+//        checkBox.click();
+        clickOnElement(checkBox);
         return this;
     }
 
@@ -99,7 +105,8 @@ public class FinancierSignUpPage extends BasePage {
 
     @Step("Clicking of submit SignUp button")
     public FinancierSignUpPage clickOnSubmitButton(){
-        submitButton.click();
+//        submitButton.click();
+        clickOnElement(submitButton);
         return this;
     }
 
@@ -135,13 +142,15 @@ public class FinancierSignUpPage extends BasePage {
 
     @Step("Input less than 7 character password")
     public FinancierSignUpPage inputInsufficientCharacterPassword(){
-        enterPassword.sendKeys(generateRandomPasswordOfSevenCharacters());
+//        enterPassword.sendKeys(generateRandomPasswordOfSevenCharacters());
+        writeTextInField(enterPassword,generateRandomPasswordOfSevenCharacters());
         return this;
     }
 
     @Step("Input weak password")
     public FinancierSignUpPage inputWeakPassword(String weakPassword){
-        enterPassword.sendKeys(weakPassword);
+//        enterPassword.sendKeys(weakPassword);
+        writeTextInField(enterPassword,weakPassword);
         return this;
     }
 
@@ -153,7 +162,8 @@ public class FinancierSignUpPage extends BasePage {
 
     @Step("Input invalid mobile number")
     public FinancierSignUpPage inputInvalidMobileNumber(String mobileNumber){
-        enterMobileNumber.sendKeys(mobileNumber);
+//        enterMobileNumber.sendKeys(mobileNumber);
+        writeTextInField(enterMobileNumber,mobileNumber);
         return this;
     }
 }

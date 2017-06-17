@@ -44,31 +44,36 @@ public class BusinessSignUpPage extends BasePage {
 
     @Step("Entering name")
     public BusinessSignUpPage enterName(){
-        nameField.sendKeys(generateRandomName());
+//        nameField.sendKeys(generateRandomName());
+        writeTextInField(nameField,generateRandomName());
         return this;
     }
 
     @Step("Entering email")
     public BusinessSignUpPage enterEmail(){
-        emailField.sendKeys(generateRandomPassword() + data.getEmailId());
+//        emailField.sendKeys(generateRandomPassword() + data.getEmailId());
+        writeTextInField(emailField,generateRandomPassword() + data.getEmailId());
         return this;
     }
 
     @Step("Entering mobile number")
     public BusinessSignUpPage enterMobileNumber(){
-        mobileField.sendKeys(generateRandomMobileNumber());
+//        mobileField.sendKeys(generateRandomMobileNumber());
+        writeTextInField(mobileField,generateRandomMobileNumber());
         return this;
     }
 
     @Step("Entering organisation name")
     public BusinessSignUpPage enterOrganisationName(){
-        organizationNameField.sendKeys(generateRandomName());
+//        organizationNameField.sendKeys(generateRandomName());
+        writeTextInField(organizationNameField,generateRandomName());
         return this;
     }
 
     @Step("Click on submit button")
     public BusinessSignUpPage clickOnSubmitButton(){
-        signupButton.click();
+//        signupButton.click();
+        clickOnElement(signupButton);
         return this;
     }
 
@@ -80,7 +85,8 @@ public class BusinessSignUpPage extends BasePage {
 
     @Step("Input invalid email id")
     public BusinessSignUpPage enterInvalidEmailId(){
-        emailField.sendKeys(generateRandomName());
+//        emailField.sendKeys(generateRandomName());
+        writeTextInField(emailField,generateRandomName());
         return this;
     }
 
@@ -91,7 +97,8 @@ public class BusinessSignUpPage extends BasePage {
 
     @Step("Input invalid mobile number")
     public BusinessSignUpPage enterInvalidMobileNumber(){
-        mobileField.sendKeys(data.getInvalidMobileNumber());
+//        mobileField.sendKeys(data.getInvalidMobileNumber());
+        writeTextInField(mobileField,data.getInvalidMobileNumber());
         return this;
     }
 
@@ -102,8 +109,10 @@ public class BusinessSignUpPage extends BasePage {
 
     @Step("Setting empty organisation name")
     public BusinessSignUpPage clickOnOrganisationName(){
-        organizationNameField.click();
-        mobileField.click();
+//        organizationNameField.click();
+//        mobileField.click();
+        clickOnElement(organizationNameField);
+        clickOnElement(mobileField);
         return this;
     }
 

@@ -24,6 +24,7 @@ public class DealInterstitialOverlayPage extends BasePage {
     @Step("Click on Procced button")
     public void clickOnProceedButton(){
         waitForElement(expectedReturnsText);
-        proceedButton.click();
+//        proceedButton.click();
+        clickOnElement(proceedButton);
     }
 }

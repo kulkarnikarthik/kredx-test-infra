@@ -29,19 +29,22 @@ public class TpslLoginPage extends BasePage {
 
     @Step("Entering TPSL customer name")
     public TpslLoginPage inputName(String tpslName){
-        customerName.sendKeys(tpslName);
+//        customerName.sendKeys(tpslName);
+        writeTextInField(customerName,tpslName);
         return this;
     }
 
     @Step("Entering TPSL password")
     public TpslLoginPage inputPassword(String tpslpassword){
-        password.sendKeys(tpslpassword);
+//        password.sendKeys(tpslpassword);
+        writeTextInField(password,tpslpassword);
         return this;
     }
 
     @Step("Clicking on TPSL form submit button")
     public void clickOnSubmitButton(){
-        submitButton.click();
+//        submitButton.click();
+        clickOnElement(submitButton);
     }
 
     @Step("Verification of TPSL login page loading")

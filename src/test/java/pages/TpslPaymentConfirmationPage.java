@@ -22,7 +22,8 @@ public class TpslPaymentConfirmationPage extends BasePage {
     }
 
     public void confirmTransaction(){
-        submitButton.click();
+//        submitButton.click();
+        clickOnElement(submitButton);
     }
 
     @Step("Verification of TPSL Payment Confirmation page landing")

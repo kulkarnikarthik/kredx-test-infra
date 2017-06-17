@@ -26,20 +26,24 @@ public class KredxEWalletServicePage extends BasePage {
 
     @Step("Click on TPSL radio button")
     public KredxEWalletServicePage selectTPSLRadioButton(){
-        radioButtonTPSL.click();
+//        radioButtonTPSL.click();
+        clickOnElement(radioButtonTPSL);
         return this;
     }
 
     @Step("input remarks")
     public KredxEWalletServicePage inputRemarks(String inputRemarks){
-        remarks.click();
-        remarks.sendKeys(inputRemarks);
+//        remarks.click();
+        clickOnElement(remarks);
+//        remarks.sendKeys(inputRemarks);
+        writeTextInField(remarks,inputRemarks);
         return this;
     }
 
     @Step("click on submit button")
     public void clickOnSubmitButton(){
-        payButton.click();
+//        payButton.click();
+        clickOnElement(payButton);
     }
 
     @Step("waiting for Paymenent gateway page to load")
