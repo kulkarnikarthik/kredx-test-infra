@@ -70,6 +70,7 @@ public class BaseTest {
         prefs.put("password_manager_enabled", false);
         options.setExperimentalOption("prefs", prefs);
 //        options.addArguments("--kiosk");     //      maximizes screen
+     //   driver.manage().window().setSize();
         capabilities.setCapability(ChromeOptions.CAPABILITY, options);
         return this;
     }
