@@ -35,3 +35,9 @@ mobileNumberPrefix: 710040
 otp: 000000
 sucessfulSignupText: THANK YOU FOR REGISTERING
 emptyOrganisationErrorMessage: Please enter name of your organisation
+vendorUrl: https://staging.kredx.com/vendor
+successfulFirstStepSignupMessage: Company
+invalidMobileErrorMessage: Please use a country code starting with +(plus) along with phone number
+emptyOrganisationError: Required
+invalidAadhaarErrorMessage: Please enter a valid Aadhaar number
+otpVerificationFailedMessage: OTP verification failed

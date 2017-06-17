@@ -17,7 +17,7 @@ public class DashboardPage extends BasePage {
     @FindBy(linkText = "Dashboard")
     WebElement dashboardIcon;
 
-    @FindBy(xpath = "//div[@class = 'navbar-account-body']/div/span")
+    @FindBy(xpath = "//div[@class='name']/span")
     WebElement clickOnProfileDropdown;
 
     @FindBy(xpath = "//li[contains(text(),'LOG OUT')]")
@@ -43,10 +43,9 @@ public class DashboardPage extends BasePage {
     }
 
     @Step("User logged out")
-    public DashboardPage logoutUser(){
+    public void logoutUser(){
         clickOnElement(clickOnProfileDropdown);
         clickOnElement(logoutButton);
-        return this;
     }
 
     @Step("Go to accounts page")

@@ -26,7 +26,8 @@ public class CurrentDealsPage extends BasePage {
     @FindBy(xpath = "//strong[contains(text(),'Transaction Successful')]")
     WebElement transactionSuccessfulText;
 
-    @FindBy(xpath = "//div[@class = 'navbar-account-body']/div/span")
+//    @FindBy(xpath = "//div[@class = 'navbar-account-body']/div/span")
+    @FindBy(xpath = "//div[@class='name']/span")
     WebElement clickOnProfileDropdown;
 
     @FindBy(xpath = "//li[contains(text(),'LOG OUT')]")
@@ -55,6 +56,7 @@ public class CurrentDealsPage extends BasePage {
 
     @Step("Successful deal confirmation")
     public String getDealConfirmationMessage(){
+        waitForElement(transactionSuccessfulText);
         return transactionSuccessfulText.getText();
     }
 

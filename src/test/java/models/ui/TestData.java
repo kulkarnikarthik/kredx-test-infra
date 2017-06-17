@@ -39,6 +39,60 @@ public class TestData {
     private String otp;
     private String successfulSignupText;
     private String emptyOrganisationErrorMessage;
+    private String vendorUrl;
+    private String successfulFirstStepSignupMessage;
+    private String invalidMobileErrorMessage;
+    private String emptyOrganisationError;
+    private String invalidAadhaarErrorMessage;
+    private String otpVerificationFailedMessage;
+
+    public String getOtpVerificationFailedMessage() {
+        return otpVerificationFailedMessage;
+    }
+
+    public void setOtpVerificationFailedMessage(String otpVerificationFailedMessage) {
+        this.otpVerificationFailedMessage = otpVerificationFailedMessage;
+    }
+
+    public String getInvalidAadhaarErrorMessage() {
+        return invalidAadhaarErrorMessage;
+    }
+
+    public void setInvalidAadhaarErrorMessage(String invalidAadhaarErrorMessage) {
+        this.invalidAadhaarErrorMessage = invalidAadhaarErrorMessage;
+    }
+
+    public String getEmptyOrganisationError() {
+        return emptyOrganisationError;
+    }
+
+    public void setEmptyOrganisationError(String emptyOrganisationError) {
+        this.emptyOrganisationError = emptyOrganisationError;
+    }
+
+    public String getInvalidMobileErrorMessage() {
+        return invalidMobileErrorMessage;
+    }
+
+    public void setInvalidMobileErrorMessage(String invalidMobileErrorMessage) {
+        this.invalidMobileErrorMessage = invalidMobileErrorMessage;
+    }
+
+    public String getSuccessfulFirstStepSignupMessage() {
+        return successfulFirstStepSignupMessage;
+    }
+
+    public void setSuccessfulFirstStepSignupMessage(String successfulFirstStepSignupMessage) {
+        this.successfulFirstStepSignupMessage = successfulFirstStepSignupMessage;
+    }
+
+    public String getVendorUrl() {
+        return vendorUrl;
+    }
+
+    public void setVendorUrl(String vendorUrl) {
+        this.vendorUrl = vendorUrl;
+    }
 
     public String getEmptyOrganisationErrorMessage() {
         return emptyOrganisationErrorMessage;

@@ -42,6 +42,18 @@ public class AgreementSummaryPage extends BasePage {
     @FindBy(xpath = "//button[contains(text(),'Verify')]")
     WebElement verifyOtp;
 
+    @FindBy(xpath = "//div[div[contains(text(),'Aadhaar No.*')]]/div/div/input")
+    WebElement aadhaarNumberField;
+
+    @FindBy(xpath = "//div[contains(text(),'Please enter a valid Aadhaar number')]")
+    WebElement invalidAadhaarErrorMessage;
+
+    @FindBy(className = "close")
+    WebElement closeWindow;
+
+    @FindBy(xpath = "//div[contains(text(),'OTP verification failed')]")
+    WebElement invalidOtpMessage;
+
     public AgreementSummaryPage(WebDriver driver) {
         super(driver);
     }
@@ -66,7 +78,7 @@ public class AgreementSummaryPage extends BasePage {
     }
 
     @Step("Click on accept to proceed to payment button")
-    public AgreementSummaryPage clickAfterSign(){
+    public AgreementSummaryPage acceptAndSendOtp(){
         clickOnElement(afterSignButton);
         return this;
     }
@@ -102,5 +114,35 @@ public class AgreementSummaryPage extends BasePage {
         writeTextInField(inputOtp,data.getOtp());
         clickOnElement(verifyOtp);
         return this;
+    }
+
+    @Step("Input invalid Aadhaar number")
+    public AgreementSummaryPage enterInvalidAadharNumber(){
+        writeTextInField(aadhaarNumberField,data.getInvalidMobileNumber());
+        return this;
+    }
+
+    @Step("Retrieving invalid Aadhar error message")
+    public String getInvalidAadhaarErrorMessage(){
+        waitForElement(invalidAadhaarErrorMessage);
+        return invalidAadhaarErrorMessage.getText();
+    }
+
+    @Step("Close agreement window")
+    public void closeAgreementWindow(){
+        clickOnElement(closeWindow);
+    }
+
+    @Step("Input invalid Otp")
+    public AgreementSummaryPage inputInvalidOtp(){
+        writeTextInField(inputOtp,data.getInvalidMobileNumber());
+        clickOnElement(verifyOtp);
+        return this;
+    }
+
+    @Step("Retrieving invalid Otp")
+    public String invalidOtpMessage(){
+        waitForElement(invalidOtpMessage);
+        return invalidOtpMessage.getText();
     }
 }
