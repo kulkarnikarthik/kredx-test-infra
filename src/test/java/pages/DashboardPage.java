@@ -44,6 +44,7 @@ public class DashboardPage extends BasePage {
 
     @Step("User logged out")
     public void logoutUser(){
+        waitForElementToBeClickable(clickOnProfileDropdown);
         clickOnElement(clickOnProfileDropdown);
         clickOnElement(logoutButton);
     }
