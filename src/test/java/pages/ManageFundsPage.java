@@ -32,37 +32,30 @@ public class ManageFundsPage extends BasePage {
 
     @Step("Click on Manage Funds")
     public ManageFundsPage goToManageFundsPage(){
-//        goToManageFunds.click();
         clickOnElement(goToManageFunds);
         return this;
     }
 
     @Step("Add amount in input field")
     public ManageFundsPage addAmount(String amount){
-//        inputAmount.click();
-//        inputAmount.sendKeys(amount);
         writeTextInField(inputAmount,amount);
         return this;
     }
 
     @Step("Click on add funds")
     public ManageFundsPage clickOnAddFundsButton(){
-//        addFundsButton.click();
         clickOnElement(addFundsButton);
         return this;
     }
 
     @Step("Click on netbanking button")
     public ManageFundsPage clickOnNetbankingOption(){
-//        clickOnNetBankingButton.click();
         clickOnElement(clickOnNetBankingButton);
         return this;
     }
 
     @Step("Input alphanumeric text in top field")
     public ManageFundsPage inputAplphanumeicTextInTopup(){
-//        inputAmount.click();
-//        inputAmount.sendKeys(generateRandomName());
         writeTextInField(inputAmount,generateRandomName());
         return this;
     }

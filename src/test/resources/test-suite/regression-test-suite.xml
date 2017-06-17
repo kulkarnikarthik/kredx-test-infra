@@ -4,7 +4,7 @@
     <test name="kredx-test-automation">
         <classes>
             <class name="tests.InvestorSignupTest"/>
-            <class name="tests.VendorSignupTest"/>
+            <class name="tests.BusinessSignupTest"/>
             <class name="tests.LoginFlowTest"/>
             <class name="tests.WalletCreditTest"/>
             <class name="tests.BuyDealsTest"/>

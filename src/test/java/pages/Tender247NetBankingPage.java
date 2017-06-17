@@ -35,8 +35,6 @@ public class Tender247NetBankingPage extends BasePage {
 
     @Step("Select test bank option")
     public Tender247NetBankingPage selectTestBankOption(){
-//        selectDropdown.click();
-//        selectTestBank.click();
         clickOnElement(selectDropdown);
         clickOnElement(selectTestBank);
         return this;
@@ -44,7 +42,6 @@ public class Tender247NetBankingPage extends BasePage {
 
     @Step("click on pay now button")
     public void clickOnSubmitButton(){
-//        payNowButton.click();
         clickOnElement(payNowButton);
     }
 }

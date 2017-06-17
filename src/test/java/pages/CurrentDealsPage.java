@@ -44,14 +44,12 @@ public class CurrentDealsPage extends BasePage {
 
     @Step("Enter deal amount for Ent-Name Deal")
     public CurrentDealsPage inputDealAmount(String amount){
-//        svIndustriesDealAmount.sendKeys(amount);
         writeTextInField(svIndustriesDealAmount,amount);
         return this;
     }
 
     @Step("Click on Ent-Name Buy now")
     public void clickOnBuyNowButton(){
-//        svIndustriesBuyNowButton.click();
         clickOnElement(svIndustriesBuyNowButton);
     }
 
@@ -62,11 +60,7 @@ public class CurrentDealsPage extends BasePage {
 
     @Step("User logged out")
     public CurrentDealsPage logoutUser(){
-//        waitForElement(clickOnProfileDropdown);
-//        clickOnProfileDropdown.click();
         clickOnElement(clickOnProfileDropdown);
-//        waitForElement(logoutButton);
-//        logoutButton.click();
         clickOnElement(logoutButton);
         return this;
     }

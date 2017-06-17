@@ -34,7 +34,6 @@ public class DashboardPage extends BasePage {
     }
 
     public void clickOnCurrentDeals() {
-//        dealsLink.click();
         clickOnElement(dealsLink);
     }
 
@@ -45,18 +44,13 @@ public class DashboardPage extends BasePage {
 
     @Step("User logged out")
     public DashboardPage logoutUser(){
-//        waitForElement(clickOnProfileDropdown);
-//        clickOnProfileDropdown.click();
         clickOnElement(clickOnProfileDropdown);
-//        waitForElement(logoutButton);
-//        logoutButton.click();
         clickOnElement(logoutButton);
         return this;
     }
 
     @Step("Go to accounts page")
     public ManageFundsPage clickOnAddButton(){
-//        addCurrency.click();
         clickOnElement(addCurrency);
         return PageFactory.initElements(driver, ManageFundsPage.class);
     }
@@ -69,7 +63,6 @@ public class DashboardPage extends BasePage {
 
     @Step("click on dashboard icon")
     public DashboardPage clickOnDashBoard(){
-//        dashboardIcon.click();
         clickOnElement(dashboardIcon);
         return this;
     }

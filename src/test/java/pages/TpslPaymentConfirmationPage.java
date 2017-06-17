@@ -22,7 +22,6 @@ public class TpslPaymentConfirmationPage extends BasePage {
     }
 
     public void confirmTransaction(){
-//        submitButton.click();
         clickOnElement(submitButton);
     }
 

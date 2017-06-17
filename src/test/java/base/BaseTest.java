@@ -44,7 +44,7 @@ public class BaseTest {
                 maximize();
             }
             driver.get(data.getUrl());
-            driver.manage().timeouts().implicitlyWait(config.getTimeout(), TimeUnit.SECONDS);
+//            driver.manage().timeouts().implicitlyWait(config.getTimeout(), TimeUnit.SECONDS);
 
         } catch (MalformedURLException e) {
             e.printStackTrace();

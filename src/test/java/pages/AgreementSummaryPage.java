@@ -48,15 +48,12 @@ public class AgreementSummaryPage extends BasePage {
 
     @Step("Select T&C checkbox")
     public AgreementSummaryPage selectAcceptCheckbox(){
-//        waitForElement(acceptCheckbox); //added new wait
-//        acceptCheckbox.click();
         clickOnElement(acceptCheckbox);
         return this;
     }
 
     @Step("Select risk involved checkbox")
     public AgreementSummaryPage selectRiskCheckbox(){
-//        riskCheckbox.click();
         clickOnElement(riskCheckbox);
         return this;
     }
@@ -64,24 +61,19 @@ public class AgreementSummaryPage extends BasePage {
     @Step("Click on Select here to sign button")
     public AgreementSummaryPage clickConfirmButton(){
         driver.switchTo().defaultContent();
-//        waitForElement(confirmButton);
-//        confirmButton.click();
         clickOnElement(confirmButton);
         return this;
     }
 
     @Step("Click on accept to proceed to payment button")
     public AgreementSummaryPage clickAfterSign(){
-//        waitForElement(afterSignButton);
-//        afterSignButton.click();
         clickOnElement(afterSignButton);
         return this;
     }
 
     @Step("Selecting virtual pad option")
     public AgreementSummaryPage selectVirtualPadOption(){
-//        waitForElementToBeClickable(virtualPadOption);
-//        virtualPadOption.click();
+        explicitlyWaitForElement(virtualPadOption);
         clickOnElement(virtualPadOption);
         return this;
     }
@@ -91,7 +83,6 @@ public class AgreementSummaryPage extends BasePage {
         WebDriverWait wait = new WebDriverWait(driver, 10000);
         wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(1));
         driver.switchTo().frame(1);
-//        dismissPopup.click();
         clickOnElement(dismissPopup);
         return this;
     }
@@ -108,9 +99,7 @@ public class AgreementSummaryPage extends BasePage {
 
     @Step("input and verify OTP")
     public AgreementSummaryPage inputOtpAndVerify(){
-//        inputOtp.sendKeys(data.getOtp());
         writeTextInField(inputOtp,data.getOtp());
-//        verifyOtp.click();
         clickOnElement(verifyOtp);
         return this;
     }

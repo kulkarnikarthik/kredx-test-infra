@@ -142,14 +142,12 @@ public class FinancierSignUpPage extends BasePage {
 
     @Step("Input less than 7 character password")
     public FinancierSignUpPage inputInsufficientCharacterPassword(){
-//        enterPassword.sendKeys(generateRandomPasswordOfSevenCharacters());
         writeTextInField(enterPassword,generateRandomPasswordOfSevenCharacters());
         return this;
     }
 
     @Step("Input weak password")
     public FinancierSignUpPage inputWeakPassword(String weakPassword){
-//        enterPassword.sendKeys(weakPassword);
         writeTextInField(enterPassword,weakPassword);
         return this;
     }
@@ -162,7 +160,6 @@ public class FinancierSignUpPage extends BasePage {
 
     @Step("Input invalid mobile number")
     public FinancierSignUpPage inputInvalidMobileNumber(String mobileNumber){
-//        enterMobileNumber.sendKeys(mobileNumber);
         writeTextInField(enterMobileNumber,mobileNumber);
         return this;
     }

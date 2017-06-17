@@ -1,5 +1,6 @@
 package base;
 
+import models.ui.Config;
 import models.ui.TestData;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,12 +19,14 @@ public class BasePage {
     protected String parentWindow;
     protected Set<String> handles;
     protected TestData data;
+    protected Config config;
     private final int timeout = 20;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
         saveScreenshot();
         data = new YamlReader("data.yml").readTestData();
+        config = new YamlReader("config.yml").readConfig();
     }
 
     protected boolean isVisible(WebElement element) {
@@ -135,5 +138,10 @@ public class BasePage {
     public void writeTextInField(WebElement webElement,String text){
         waitForElement(webElement);
         webElement.sendKeys(text);
+    }
+
+    public void explicitlyWaitForElement(WebElement webElement){
+        WebDriverWait wait = new WebDriverWait(driver,config.getTimeout());
+        wait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 }

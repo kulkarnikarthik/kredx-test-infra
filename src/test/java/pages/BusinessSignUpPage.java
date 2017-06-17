@@ -44,35 +44,30 @@ public class BusinessSignUpPage extends BasePage {
 
     @Step("Entering name")
     public BusinessSignUpPage enterName(){
-//        nameField.sendKeys(generateRandomName());
         writeTextInField(nameField,generateRandomName());
         return this;
     }
 
     @Step("Entering email")
     public BusinessSignUpPage enterEmail(){
-//        emailField.sendKeys(generateRandomPassword() + data.getEmailId());
         writeTextInField(emailField,generateRandomPassword() + data.getEmailId());
         return this;
     }
 
     @Step("Entering mobile number")
     public BusinessSignUpPage enterMobileNumber(){
-//        mobileField.sendKeys(generateRandomMobileNumber());
         writeTextInField(mobileField,generateRandomMobileNumber());
         return this;
     }
 
     @Step("Entering organisation name")
     public BusinessSignUpPage enterOrganisationName(){
-//        organizationNameField.sendKeys(generateRandomName());
         writeTextInField(organizationNameField,generateRandomName());
         return this;
     }
 
     @Step("Click on submit button")
     public BusinessSignUpPage clickOnSubmitButton(){
-//        signupButton.click();
         clickOnElement(signupButton);
         return this;
     }
@@ -85,32 +80,30 @@ public class BusinessSignUpPage extends BasePage {
 
     @Step("Input invalid email id")
     public BusinessSignUpPage enterInvalidEmailId(){
-//        emailField.sendKeys(generateRandomName());
         writeTextInField(emailField,generateRandomName());
         return this;
     }
 
     @Step("Retrieving invalid email message")
     public String getInvalidEmailMessage(){
+        waitForElement(invalidEmailEnteredMessage);
         return invalidEmailEnteredMessage.getText();
     }
 
     @Step("Input invalid mobile number")
     public BusinessSignUpPage enterInvalidMobileNumber(){
-//        mobileField.sendKeys(data.getInvalidMobileNumber());
         writeTextInField(mobileField,data.getInvalidMobileNumber());
         return this;
     }
 
     @Step("Retrieving invalid mobile number message")
     public String getInvalidMobileNumberMessage(){
+        waitForElement(invalidMobileNumberEnteredMessage);
         return invalidMobileNumberEnteredMessage.getText();
     }
 
     @Step("Setting empty organisation name")
     public BusinessSignUpPage clickOnOrganisationName(){
-//        organizationNameField.click();
-//        mobileField.click();
         clickOnElement(organizationNameField);
         clickOnElement(mobileField);
         return this;
