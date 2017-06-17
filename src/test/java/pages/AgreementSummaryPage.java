@@ -60,12 +60,14 @@ public class AgreementSummaryPage extends BasePage {
 
     @Step("Select T&C checkbox")
     public AgreementSummaryPage selectAcceptCheckbox(){
+        waitForElementToBeClickable(acceptCheckbox);
         clickOnElement(acceptCheckbox);
         return this;
     }
 
     @Step("Select risk involved checkbox")
     public AgreementSummaryPage selectRiskCheckbox(){
+        waitForElementToBeClickable(riskCheckbox);
         clickOnElement(riskCheckbox);
         return this;
     }
