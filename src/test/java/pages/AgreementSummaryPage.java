@@ -143,7 +143,7 @@ public class AgreementSummaryPage extends BasePage {
     @Step("Close agreement window")
     public AgreementSummaryPage closeAgreementWindow(){
         clickOnElement(closeWindow);
-        waitForElementToDisappear(dismissPopup);
+        waitForElementToDisappear(popupBackground);
         return this;
     }
 

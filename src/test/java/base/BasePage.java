@@ -147,17 +147,18 @@ public class BasePage {
 
     protected void waitForElementToDisappear(WebElement element) {
         int pollingDuration = 500;
-        boolean visible = false;
+        boolean visible = true;
         for (int i = 0; i < timeout; i++) {
             try {
-                visible = element.isDisplayed();
+                element.isDisplayed();
             } catch (Exception e) {
+                visible = false;
                 break;
             }
             waitFor(pollingDuration);
         }
-        if (!visible) {
-            throw new NoSuchElementException("Element: " + element + " not found");
+        if (visible) {
+            throw new NoSuchElementException("Element: " + element + " found");
         }
     }
 }
