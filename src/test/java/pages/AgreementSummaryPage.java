@@ -97,7 +97,7 @@ public class AgreementSummaryPage extends BasePage {
 
     @Step("Selecting virtual pad option")
     public AgreementSummaryPage selectVirtualPadOption(){
-        explicitlyWaitForElement(virtualPadOption);
+        waitForElementToBeClickable(virtualPadOption);
         clickOnElement(virtualPadOption);
         return this;
     }
@@ -172,7 +172,7 @@ public class AgreementSummaryPage extends BasePage {
                 clickOnElement(logoutButton);
                 break;
             }
-            waitFor(50);
+            waitFor(100);
         }
     }
 }
