@@ -143,6 +143,7 @@ public class AgreementSummaryPage extends BasePage {
     @Step("Close agreement window")
     public AgreementSummaryPage closeAgreementWindow(){
         clickOnElement(closeWindow);
+        waitForElementToDisappear(dismissPopup);
         return this;
     }
 
@@ -161,18 +162,8 @@ public class AgreementSummaryPage extends BasePage {
 
     @Step("User logged out")
     public void logoutUser(){
-        for(int i = 0; i < config.getTimeout(); i++){
-            try {
-                if (!popupBackground.isDisplayed()){
-                    continue;
-                }
-            }
-            catch (Exception e){
-                clickOnProfileDropdown.click();
-                logoutButton.click();
-                break;
-            }
-            waitFor(5);
-        }
+        clickOnElement(clickOnProfileDropdown);
+        clickOnElement(logoutButton);
+
     }
 }

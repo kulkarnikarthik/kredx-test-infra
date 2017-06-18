@@ -144,4 +144,20 @@ public class BasePage {
         WebDriverWait wait = new WebDriverWait(driver,config.getTimeout());
         wait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
+
+    protected void waitForElementToDisappear(WebElement element) {
+        int pollingDuration = 500;
+        boolean visible = false;
+        for (int i = 0; i < timeout; i++) {
+            try {
+                visible = element.isDisplayed();
+            } catch (Exception e) {
+                break;
+            }
+            waitFor(pollingDuration);
+        }
+        if (!visible) {
+            throw new NoSuchElementException("Element: " + element + " not found");
+        }
+    }
 }
