@@ -172,7 +172,7 @@ public class AgreementSummaryPage extends BasePage {
                 clickOnElement(logoutButton);
                 break;
             }
-            waitFor(200);
+            waitFor(50);
         }
     }
 }
