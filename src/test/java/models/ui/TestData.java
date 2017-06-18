@@ -10,7 +10,7 @@ public class TestData {
     private String name;
     private String mobileNumber;
     private String emailId;
-    private String inCorrectPasswordErrorMessage;
+    private String incorrectPasswordErrorMessage;
     private String loggedInMessage;
     private String userLoggedOutMessage;
     private String createdAccountMessage;
@@ -23,6 +23,204 @@ public class TestData {
     private String alphanumericErrorMessage;
     private String noEmailMessage;
     private String invalidEmail;
+    private String dealAmount;
+    private String successfulDeal;
+    private String invalidSignupEmailMessage;
+    private String nameFieldErrorMessage;
+    private String mobileNumberErrorMessage;
+    private String insufficientCharactersErrorMessage;
+    private String termsAndConditionsErrorMessage;
+    private String insufficientCharacterPassword;
+    private String weakPassword;
+    private String weakPasswordMessage;
+    private String invalidMobileNumber;
+    private String randomText;
+    private String mobileNumberPrefix;
+    private String otp;
+    private String successfulSignupText;
+    private String emptyOrganisationErrorMessage;
+    private String vendorUrl;
+    private String successfulFirstStepSignupMessage;
+    private String invalidMobileErrorMessage;
+    private String emptyOrganisationError;
+    private String invalidAadhaarErrorMessage;
+    private String otpVerificationFailedMessage;
+
+    public String getOtpVerificationFailedMessage() {
+        return otpVerificationFailedMessage;
+    }
+
+    public void setOtpVerificationFailedMessage(String otpVerificationFailedMessage) {
+        this.otpVerificationFailedMessage = otpVerificationFailedMessage;
+    }
+
+    public String getInvalidAadhaarErrorMessage() {
+        return invalidAadhaarErrorMessage;
+    }
+
+    public void setInvalidAadhaarErrorMessage(String invalidAadhaarErrorMessage) {
+        this.invalidAadhaarErrorMessage = invalidAadhaarErrorMessage;
+    }
+
+    public String getEmptyOrganisationError() {
+        return emptyOrganisationError;
+    }
+
+    public void setEmptyOrganisationError(String emptyOrganisationError) {
+        this.emptyOrganisationError = emptyOrganisationError;
+    }
+
+    public String getInvalidMobileErrorMessage() {
+        return invalidMobileErrorMessage;
+    }
+
+    public void setInvalidMobileErrorMessage(String invalidMobileErrorMessage) {
+        this.invalidMobileErrorMessage = invalidMobileErrorMessage;
+    }
+
+    public String getSuccessfulFirstStepSignupMessage() {
+        return successfulFirstStepSignupMessage;
+    }
+
+    public void setSuccessfulFirstStepSignupMessage(String successfulFirstStepSignupMessage) {
+        this.successfulFirstStepSignupMessage = successfulFirstStepSignupMessage;
+    }
+
+    public String getVendorUrl() {
+        return vendorUrl;
+    }
+
+    public void setVendorUrl(String vendorUrl) {
+        this.vendorUrl = vendorUrl;
+    }
+
+    public String getEmptyOrganisationErrorMessage() {
+        return emptyOrganisationErrorMessage;
+    }
+
+    public void setEmptyOrganisationErrorMessage(String emptyOrganisationErrorMessage) {
+        this.emptyOrganisationErrorMessage = emptyOrganisationErrorMessage;
+    }
+
+    public String getSuccessfulSignupText() {
+        return successfulSignupText;
+    }
+
+    public void setSucessfulSignupText(String successfulSignupText) {
+        this.successfulSignupText = successfulSignupText;
+    }
+
+    public String getOtp() {
+        return otp;
+    }
+
+    public void setOtp(String otp) {
+        this.otp = otp;
+    }
+
+    public String getMobileNumberPrefix() {
+        return mobileNumberPrefix;
+    }
+
+    public void setMobileNumberPrefix(String mobileNumberPrefix) {
+        this.mobileNumberPrefix = mobileNumberPrefix;
+    }
+
+    public String getRandomText() {
+        return randomText;
+    }
+
+    public void setRandomText(String randomText) {
+        this.randomText = randomText;
+    }
+
+    public String getInvalidMobileNumber() {
+        return invalidMobileNumber;
+    }
+
+    public void setInvalidMobileNumber(String invalidMobileNumber) {
+        this.invalidMobileNumber = invalidMobileNumber;
+    }
+
+    public String getWeakPasswordMessage() {
+        return weakPasswordMessage;
+    }
+
+    public void setWeakPasswordMessage(String weakPasswordMessage) {
+        this.weakPasswordMessage = weakPasswordMessage;
+    }
+
+    public String getWeakPassword() {
+        return weakPassword;
+    }
+
+    public void setWeakPassword(String weakPassword) {
+        this.weakPassword = weakPassword;
+    }
+
+    public String getInsufficientCharacterPassword() {
+        return insufficientCharacterPassword;
+    }
+
+    public void setInsufficientCharacterPassword(String insufficientCharacterPassword) {
+        this.insufficientCharacterPassword = insufficientCharacterPassword;
+    }
+
+    public String getTermsAndConditionsErrorMessage() {
+        return termsAndConditionsErrorMessage;
+    }
+
+    public void setTermsAndConditionsErrorMessage(String termsAndConditionsErrorMessage) {
+        this.termsAndConditionsErrorMessage = termsAndConditionsErrorMessage;
+    }
+
+    public String getInsufficientCharactersErrorMessage() {
+        return insufficientCharactersErrorMessage;
+    }
+
+    public void setInsufficientCharactersErrorMessage(String insufficientCharactersErrorMessage) {
+        this.insufficientCharactersErrorMessage = insufficientCharactersErrorMessage;
+    }
+
+    public String getMobileNumberErrorMessage() {
+        return mobileNumberErrorMessage;
+    }
+
+    public void setMobileNumberErrorMessage(String mobileNumberErrorMessage) {
+        this.mobileNumberErrorMessage = mobileNumberErrorMessage;
+    }
+
+    public String getNameFieldErrorMessage() {
+        return nameFieldErrorMessage;
+    }
+
+    public void setNameFieldErrorMessage(String nameFieldErrorMessage) {
+        this.nameFieldErrorMessage = nameFieldErrorMessage;
+    }
+
+    public String getInvalidSignupEmailMessage() {
+        return invalidSignupEmailMessage;
+    }
+
+    public void setInvalidSignupEmailMessage(String invalidSignupEmailMessage) {
+        this.invalidSignupEmailMessage = invalidSignupEmailMessage;
+    }
+
+    public String getSuccessfulDealMessage() {
+        return successfulDeal;
+    }
+
+    public void setSuccessfulDeal(String successfulDeal) {
+        this.successfulDeal = successfulDeal;
+    }
+
+    public String getDealAmount() {
+        return dealAmount;
+    }
+
+    public void setDealAmount(String dealAmount) {
+        this.dealAmount = dealAmount;
+    }
 
     public String getInvalidEmail() {
         return invalidEmail;
@@ -80,10 +278,6 @@ public class TestData {
         this.inputRemark = inputRemark;
     }
 
-    public String getInCorrectPasswordErrorMessage() {
-        return inCorrectPasswordErrorMessage;
-    }
-
     public String getAmount() {
         return amount;
     }
@@ -124,12 +318,12 @@ public class TestData {
         this.loggedInMessage = loggedInMessage;
     }
 
-    public String getCorrectPasswordErrorMessage() {
-        return inCorrectPasswordErrorMessage;
+    public String getIncorrectPasswordErrorMessage() {
+        return incorrectPasswordErrorMessage;
     }
 
-    public void setInCorrectPasswordErrorMessage(String inCorrectPasswordErrorMessage) {
-        this.inCorrectPasswordErrorMessage = inCorrectPasswordErrorMessage;
+    public void setIncorrectPasswordErrorMessage(String incorrectPasswordErrorMessage) {
+        this.incorrectPasswordErrorMessage = incorrectPasswordErrorMessage;
     }
 
     public String getName() {

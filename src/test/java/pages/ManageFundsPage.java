@@ -1,13 +1,9 @@
 package pages;
 
 import base.BasePage;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
 
 /**
@@ -24,10 +20,10 @@ public class ManageFundsPage extends BasePage {
     @FindBy(linkText = "Add Funds")
     WebElement addFundsButton;
 
-    @FindBy(xpath = "//button[contains(text(),'Add Funds via Netbanking')]")
+    @FindBy(xpath = "//button[contains(text(),'Net banking')]")
     WebElement clickOnNetBankingButton;
 
-    @FindBy(xpath = ".//div[contains(text(),'Please enter a valid amount for topup.')]")
+    @FindBy(xpath = ".//div[contains(text(),'Please enter a valid amount for netbanking transactions')]")
     WebElement alphaNumericErrorMessageOnInvalidAmount;
 
     public ManageFundsPage(WebDriver driver) {
@@ -36,33 +32,31 @@ public class ManageFundsPage extends BasePage {
 
     @Step("Click on Manage Funds")
     public ManageFundsPage goToManageFundsPage(){
-        goToManageFunds.click();
+        clickOnElement(goToManageFunds);
         return this;
     }
 
     @Step("Add amount in input field")
     public ManageFundsPage addAmount(String amount){
-        inputAmount.click();
-        inputAmount.sendKeys(amount);
+        writeTextInField(inputAmount,amount);
         return this;
     }
 
     @Step("Click on add funds")
     public ManageFundsPage clickOnAddFundsButton(){
-        addFundsButton.click();
+        clickOnElement(addFundsButton);
         return this;
     }
 
     @Step("Click on netbanking button")
     public ManageFundsPage clickOnNetbankingOption(){
-        clickOnNetBankingButton.click();
+        clickOnElement(clickOnNetBankingButton);
         return this;
     }
 
     @Step("Input alphanumeric text in top field")
     public ManageFundsPage inputAplphanumeicTextInTopup(){
-        inputAmount.click();
-        inputAmount.sendKeys(generateRandomName());
+        writeTextInField(inputAmount,generateRandomName());
         return this;
     }
 

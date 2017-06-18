@@ -1,12 +1,9 @@
 package pages;
 
 import base.BasePage;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
 
 
@@ -38,19 +35,22 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//div[contains(text(),'Email Provided is not valid')]")
     WebElement invalidEmailMessage;
 
+    @FindBy(xpath = "//a[contains(text(),'Sign up as a Business')]")
+    WebElement businessSignupLink;
+
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
     @Step("Entering valid username")
     public LoginPage enterUsername(String username) {
-        email.sendKeys(username);
+        writeTextInField(email,username);
         return this;
     }
 
     @Step("Entering valid password")
     public LoginPage enterPassword(String password) {
-        this.password.sendKeys(password);
+        writeTextInField(this.password,password);
         return this;
     }
 
@@ -60,77 +60,48 @@ public class LoginPage extends BasePage {
 
     @Step("Verifying error message for no password entered")
     public String isPasswordErrorMessageVisible(){
-        WebDriverWait wait = new WebDriverWait(driver,4000);
-        try{
-            wait.until(ExpectedConditions.visibilityOf(noPasswordEntered));
-            return noPasswordEntered.getText();
-        }
-        catch(NoSuchElementException e){
-            return "not found";
-        }
+        waitForElement(noPasswordEntered);
+        return noPasswordEntered.getText();
     }
 
     @Step("Navigating to investor signup page")
     public LoginPage goToSignUpAsInvestorPage(){
-        WebDriverWait wait = new WebDriverWait(driver,3000);
-        wait.until(ExpectedConditions.elementToBeClickable(signUpAsInvestor));
-        signUpAsInvestor.click();
+        clickOnElement(signUpAsInvestor);
         return this;
     }
 
     @Step("Verifying user logout")
     public String isUserLoggedOut(){
-        WebDriverWait wait = new WebDriverWait(driver,4000);
-        try{
-            wait.until(ExpectedConditions.visibilityOf(onLoginPage));
-            return onLoginPage.getText().trim();
-        }
-        catch(NoSuchElementException e){
-            return "not found";
-        }
+        waitForElement(onLoginPage);
+        return onLoginPage.getText().trim();
     }
 
     @Step("Input invalid password")
     public LoginPage inCorrectPassword() {
-        this.password.sendKeys(generateRandomPassword());
+        writeTextInField(this.password,generateRandomPassword());
         return this;
     }
 
     @Step("Verification of incorrect password error message")
-    public String isInCorrectPasswordErrorMessageVisible(){
-        WebDriverWait wait = new WebDriverWait(driver,4000);
-        try{
-            wait.until(ExpectedConditions.visibilityOf(errorMessageWrongPassword));
-            return errorMessageWrongPassword.getText();
-        }
-        catch(NoSuchElementException e){
-            return "not found";
-        }
+    public String isIncorrectPasswordErrorMessageVisible(){
+        waitForElement(errorMessageWrongPassword);
+        return errorMessageWrongPassword.getText();
     }
 
     @Step("Verification of no username entered error message")
     public String noUsernameEnteredMessage(){
-        WebDriverWait wait = new WebDriverWait(driver,4000);
-        try{
-            wait.until(ExpectedConditions.visibilityOf(emptyEmailField));
-            return emptyEmailField.getText();
-        }
-        catch(NoSuchElementException e){
-            return "not found";
-        }
+        waitForElement(emptyEmailField);
+        return emptyEmailField.getText();
     }
 
     @Step("Invalid email entered message")
     public String invalidEmailEnteredMessage(){
-    WebDriverWait wait = new WebDriverWait(driver,4000);
-        try{
-        wait.until(ExpectedConditions.visibilityOf(invalidEmailMessage));
+        waitForElement(invalidEmailMessage);
         return invalidEmailMessage.getText();
     }
-        catch(NoSuchElementException e){
-        return "not found";
+
+    @Step("Click on business sign up link")
+    public void clickOnBusinessSignuplink(){
+        clickOnElement(businessSignupLink);
     }
-}
-
-
 }

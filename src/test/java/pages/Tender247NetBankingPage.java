@@ -4,8 +4,6 @@ import base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
 
 /**
@@ -31,20 +29,19 @@ public class Tender247NetBankingPage extends BasePage {
 
     @Step("verify on Netbanking page")
     public void verifyOnNebankingPage(){
-        WebDriverWait wait = new WebDriverWait(driver, 10000);
-        wait.until(ExpectedConditions.visibilityOf(netBankingPageHeader));
+        waitForElement(netBankingPageHeader);
         System.out.println("On netbanking page");
     }
 
     @Step("Select test bank option")
     public Tender247NetBankingPage selectTestBankOption(){
-        selectDropdown.click();
-        selectTestBank.click();
+        clickOnElement(selectDropdown);
+        clickOnElement(selectTestBank);
         return this;
     }
 
     @Step("click on pay now button")
     public void clickOnSubmitButton(){
-        payNowButton.click();
+        clickOnElement(payNowButton);
     }
 }

@@ -1,12 +1,9 @@
 package pages;
 
 import base.BasePage;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
 
 /**
@@ -32,30 +29,24 @@ public class TpslLoginPage extends BasePage {
 
     @Step("Entering TPSL customer name")
     public TpslLoginPage inputName(String tpslName){
-        customerName.sendKeys(tpslName);
+        writeTextInField(customerName,tpslName);
         return this;
     }
 
     @Step("Entering TPSL password")
     public TpslLoginPage inputPassword(String tpslpassword){
-        password.sendKeys(tpslpassword);
+        writeTextInField(password,tpslpassword);
         return this;
     }
 
     @Step("Clicking on TPSL form submit button")
     public void clickOnSubmitButton(){
-        submitButton.click();
+        clickOnElement(submitButton);
     }
 
     @Step("Verification of TPSL login page loading")
     public void verifyOnTpslLandingPage(){
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, 10000);
-            wait.until(ExpectedConditions.visibilityOf(tpslLoginPageHeader));
-            System.out.println("On TPSL login page");
-        }
-        catch (NoSuchElementException e){
-            System.out.println("No element found");
-        }
+        waitForElement(tpslLoginPageHeader);
+        System.out.println("On TPSL login page");
     }
 }

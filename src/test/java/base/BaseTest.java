@@ -44,7 +44,7 @@ public class BaseTest {
                 maximize();
             }
             driver.get(data.getUrl());
-            driver.manage().timeouts().implicitlyWait(config.getTimeout(), TimeUnit.SECONDS);
+//            driver.manage().timeouts().implicitlyWait(config.getTimeout(), TimeUnit.SECONDS);
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -69,6 +69,7 @@ public class BaseTest {
         prefs.put("credentials_enable_service", false);
         prefs.put("password_manager_enabled", false);
         options.setExperimentalOption("prefs", prefs);
+        options.addArguments("--kiosk");     //      maximizes screen
         capabilities.setCapability(ChromeOptions.CAPABILITY, options);
         return this;
     }

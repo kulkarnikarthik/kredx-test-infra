@@ -1,12 +1,9 @@
 package pages;
 
 import base.BasePage;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
 
 /**
@@ -29,31 +26,25 @@ public class KredxEWalletServicePage extends BasePage {
 
     @Step("Click on TPSL radio button")
     public KredxEWalletServicePage selectTPSLRadioButton(){
-        radioButtonTPSL.click();
+        clickOnElement(radioButtonTPSL);
         return this;
     }
 
     @Step("input remarks")
     public KredxEWalletServicePage inputRemarks(String inputRemarks){
-        remarks.click();
-        remarks.sendKeys(inputRemarks);
+        clickOnElement(remarks);
+        writeTextInField(remarks,inputRemarks);
         return this;
     }
 
     @Step("click on submit button")
     public void clickOnSubmitButton(){
-        payButton.click();
+        clickOnElement(payButton);
     }
 
     @Step("waiting for Paymenent gateway page to load")
     public void waitForPaymentGatewayPage(){
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, 10000);
-            wait.until(ExpectedConditions.visibilityOf(payButton));
-            System.out.println("On payment gateway page");
-        }
-        catch (NoSuchElementException e){
-            System.out.println("No element found");
-        }
+        waitForElement(payButton);
+        System.out.println("on payment gateway page");
     }
 }
