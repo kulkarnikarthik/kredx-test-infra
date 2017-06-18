@@ -138,6 +138,7 @@ public class AgreementSummaryPage extends BasePage {
 
     @Step("Input invalid Otp")
     public AgreementSummaryPage inputInvalidOtp(){
+        explicitlyWaitForElement(inputOtp);
         writeTextInField(inputOtp,data.getInvalidMobileNumber());
         clickOnElement(verifyOtp);
         return this;
@@ -145,7 +146,6 @@ public class AgreementSummaryPage extends BasePage {
 
     @Step("Retrieving invalid Otp")
     public String invalidOtpMessage(){
-        explicitlyWaitForElement(invalidOtpMessage);
         waitForElement(invalidOtpMessage);
         return invalidOtpMessage.getText();
     }
