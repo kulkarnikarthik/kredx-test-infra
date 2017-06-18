@@ -62,8 +62,7 @@ public class CurrentDealsPage extends BasePage {
     @Step("User logged out")
     public CurrentDealsPage logoutUser(){
         waitForElementToBeClickable(clickOnProfileDropdown);
-        clickOnElement(clickOnProfileDropdown);
-        waitForElementToBeClickable(logoutButton);
+        clickOnProfileDropdown.click();
         clickOnElement(logoutButton);
         return this;
     }

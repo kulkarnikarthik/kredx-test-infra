@@ -158,21 +158,28 @@ public class AgreementSummaryPage extends BasePage {
         waitForElement(invalidOtpMessage);
         return invalidOtpMessage.getText();
     }
+//
+//    @Step("User logged out")
+//    public void logoutUser(){
+//        for(int i = 0; i < config.getTimeout(); i++){
+//            try {
+//                if (popupBackground.isDisplayed()!=true){
+//                    continue;
+//                }
+//            }
+//            catch (Exception e){
+//                clickOnProfileDropdown.click();
+//                logoutButton.click();
+//                break;
+//            }
+//            waitFor(100);
+//        }
+//    }
 
     @Step("User logged out")
     public void logoutUser(){
-        for(int i = 0; i < config.getTimeout(); i++){
-            try {
-                if (popupBackground.isDisplayed()!=true){
-                    continue;
-                }
-            }
-            catch (Exception e){
-                clickOnElement(clickOnProfileDropdown);
-                clickOnElement(logoutButton);
-                break;
-            }
-            waitFor(100);
-        }
+        waitForElementToBeClickable(clickOnProfileDropdown);
+        clickOnProfileDropdown.click();
+        logoutButton.click();
     }
 }
