@@ -74,8 +74,8 @@ public class BuyDealsTest extends BaseTest {
                             .acceptAndSendOtp();
 
         Assert.assertEquals(agreementSummaryPage.getInvalidAadhaarErrorMessage(),data.getInvalidAadhaarErrorMessage());
-        agreementSummaryPage.closeAgreementWindow();
-        currentDealsPage.logoutUser();
+        agreementSummaryPage.closeAgreementWindow()
+                            .logoutUser();
     }
 
     @Test
@@ -108,7 +108,7 @@ public class BuyDealsTest extends BaseTest {
                 .inputInvalidOtp();
 
         Assert.assertEquals(agreementSummaryPage.invalidOtpMessage(),data.getOtpVerificationFailedMessage());
-        agreementSummaryPage.closeAgreementWindow();
-        currentDealsPage.logoutUser();
+        agreementSummaryPage.closeAgreementWindow()
+                            .logoutUser();
     }
 }

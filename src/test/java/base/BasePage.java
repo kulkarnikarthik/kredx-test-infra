@@ -121,7 +121,7 @@ public class BasePage {
         }
     }
 
-    private void waitFor(int pollingDuration) {
+    protected void waitFor(int pollingDuration) {
         System.out.println("waiting for: " + pollingDuration);
         try {
             Thread.sleep(pollingDuration);

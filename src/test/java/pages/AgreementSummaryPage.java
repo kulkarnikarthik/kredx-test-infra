@@ -54,6 +54,15 @@ public class AgreementSummaryPage extends BasePage {
     @FindBy(xpath = "//div[contains(text(),'OTP verification failed')]")
     WebElement invalidOtpMessage;
 
+    @FindBy(xpath = "//div[@class='name']/span")
+    WebElement clickOnProfileDropdown;
+
+    @FindBy(xpath = "//li[contains(text(),'LOG OUT')]")
+    WebElement logoutButton;
+
+    @FindBy(xpath = "//div[@class = 'fade in modal']")
+    WebElement popupBackground;
+
     public AgreementSummaryPage(WebDriver driver) {
         super(driver);
     }
@@ -132,13 +141,13 @@ public class AgreementSummaryPage extends BasePage {
     }
 
     @Step("Close agreement window")
-    public void closeAgreementWindow(){
+    public AgreementSummaryPage closeAgreementWindow(){
         clickOnElement(closeWindow);
+        return this;
     }
 
     @Step("Input invalid Otp")
     public AgreementSummaryPage inputInvalidOtp(){
-        explicitlyWaitForElement(inputOtp);
         writeTextInField(inputOtp,data.getInvalidMobileNumber());
         clickOnElement(verifyOtp);
         return this;
@@ -148,5 +157,22 @@ public class AgreementSummaryPage extends BasePage {
     public String invalidOtpMessage(){
         waitForElement(invalidOtpMessage);
         return invalidOtpMessage.getText();
+    }
+
+    @Step("User logged out")
+    public void logoutUser(){
+        for(int i = 0; i < config.getTimeout(); i++){
+            try {
+                if (popupBackground.isDisplayed()!=true){
+                    continue;
+                }
+            }
+            catch (Exception e){
+                clickOnElement(clickOnProfileDropdown);
+                clickOnElement(logoutButton);
+                break;
+            }
+            waitFor(200);
+        }
     }
 }
