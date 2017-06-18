@@ -104,7 +104,7 @@ public class AgreementSummaryPage extends BasePage {
 
     @Step("Dismissing help pop up")
     public AgreementSummaryPage dismissHelpPopup(){
-        WebDriverWait wait = new WebDriverWait(driver, 10000);
+        WebDriverWait wait = new WebDriverWait(driver, config.getWaitForFrameTimeout());
         wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(1));
         driver.switchTo().frame(1);
         clickOnElement(dismissPopup);
@@ -163,7 +163,7 @@ public class AgreementSummaryPage extends BasePage {
     public void logoutUser(){
         for(int i = 0; i < config.getTimeout(); i++){
             try {
-                if (popupBackground.isDisplayed()!=true){
+                if (!popupBackground.isDisplayed()){
                     continue;
                 }
             }
@@ -172,7 +172,7 @@ public class AgreementSummaryPage extends BasePage {
                 logoutButton.click();
                 break;
             }
-            waitFor(100);
+            waitFor(5);
         }
     }
 }

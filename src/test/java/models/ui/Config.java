@@ -13,7 +13,16 @@ public class Config {
     private String node_url;
     private boolean bring_to_front;
     private boolean maximize;
+    private int waitForFrame;
     private Map<String, String> users;
+
+    public int getWaitForFrameTimeout() {
+        return waitForFrame;
+    }
+
+    public void setWaitForFrame(int waitForFrame) {
+        this.waitForFrame = waitForFrame;
+    }
 
     public String getNode_url() {
         return node_url;
