@@ -23,7 +23,6 @@ public class DealInterstitialOverlayPage extends BasePage {
 
     @Step("Click on Procced button")
     public void clickOnProceedButton(){
-        waitForElement(expectedReturnsText);
         clickOnElement(proceedButton);
     }
 }

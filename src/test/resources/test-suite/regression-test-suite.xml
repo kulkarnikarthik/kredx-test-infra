@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Regression">
-    <test name="kredx-test-automation">
-        <classes>
-            <class name="tests.InvestorSignupTest"/>
-            <class name="tests.VendorSignupTest"/>
-            <class name="tests.LoginFlowTest"/>
-            <class name="tests.WalletCreditTest"/>
-            <class name="tests.BuyDealsTest"/>
-        </classes>
-    </test>
+   <suite-files>
+       <suite-file path="investor-test-suit.xml"/>
+       <suite-file path="vendor-test-suite.xml"/>
+   </suite-files>
 </suite>
