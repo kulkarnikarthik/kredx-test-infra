@@ -175,11 +175,4 @@ public class AgreementSummaryPage extends BasePage {
             waitFor(100);
         }
     }
-
-//    @Step("User logged out")
-//    public void logoutUser(){
-//        waitForElementToBeClickable(clickOnProfileDropdown);
-//        clickOnProfileDropdown.click();
-//        logoutButton.click();
-//    }
 }

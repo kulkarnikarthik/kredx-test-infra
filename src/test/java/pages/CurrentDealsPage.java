@@ -63,7 +63,7 @@ public class CurrentDealsPage extends BasePage {
     public CurrentDealsPage logoutUser(){
         waitForElementToBeClickable(clickOnProfileDropdown);
         clickOnProfileDropdown.click();
-        clickOnElement(logoutButton);
+        logoutButton.click();
         return this;
     }
 }
