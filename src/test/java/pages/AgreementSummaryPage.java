@@ -81,6 +81,7 @@ public class AgreementSummaryPage extends BasePage {
 
     @Step("Click on accept to proceed to payment button")
     public AgreementSummaryPage acceptAndSendOtp(){
+        explicitlyWaitForElement(afterSignButton);
         clickOnElement(afterSignButton);
         return this;
     }
@@ -144,6 +145,7 @@ public class AgreementSummaryPage extends BasePage {
 
     @Step("Retrieving invalid Otp")
     public String invalidOtpMessage(){
+        explicitlyWaitForElement(invalidOtpMessage);
         waitForElement(invalidOtpMessage);
         return invalidOtpMessage.getText();
     }
