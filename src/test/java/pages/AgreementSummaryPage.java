@@ -98,7 +98,7 @@ public class AgreementSummaryPage extends BasePage {
     @Step("Selecting virtual pad option")
     public AgreementSummaryPage selectVirtualPadOption(){
         waitForElementToBeClickable(virtualPadOption);
-        clickOnElement(virtualPadOption);
+        virtualPadOption.click();
         return this;
     }
 
